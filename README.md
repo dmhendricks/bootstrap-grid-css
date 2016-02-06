@@ -2,7 +2,9 @@
 
 **Version:** 4.0.0-alpha.2
 
-**License/Copyright:** MIT ([https://github.com/twbs/bootstrap/blob/master/LICENSE](https://github.com/twbs/bootstrap/blob/master/LICENSE))
+**License:** MIT ([https://github.com/twbs/bootstrap/blob/master/LICENSE](https://github.com/twbs/bootstrap/blob/master/LICENSE))
+
+**Contents Copyright:** (c) 2011-2016 Twitter, Inc.
 
 ## Purpose
 
