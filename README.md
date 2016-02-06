@@ -8,7 +8,7 @@
 
 ## Purpose
 
-There are times when you only want to use the excellent Bootstrap grid functionality but don't want the extra classes and typography changes included. With Bootstrap 4, extracting the grid functionality is easy.
+There are times when you only want to use the excellent Bootstrap grid functionality but don't want the extra classes and typography changes included, often when asked to work on existing client sites that do not include any responsive frameworks and you just want to get the changes done quickly and responsively. With Bootstrap 4, extracting the grid functionality is easy.
 
 ### Included Features
 
