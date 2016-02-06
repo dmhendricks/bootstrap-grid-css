@@ -14,7 +14,7 @@ There are times when you only want to use the excellent Bootstrap grid functiona
 
 * Grid framework (flex enabled)
 * Responsive Utilities
-* Manually added the `.img-fluid` class (formerly `.img-responsive` in Bootstrap 3)
+* Manually added the `.img-fluid` class (formerly `.img-responsive` in Bootstrap 3) because it's handy
 
 ## Usage
 
@@ -50,7 +50,7 @@ You can make your own custom build of Bootstrap by downloading the source, makin
 Here is how you can accomplish what I have done here:
 
 1. Download and extract the Bootstrap [source files](http://v4-alpha.getbootstrap.com/getting-started/download/)
-2. Modify the SCSS files as desired. For example, to generate this build I added the `.bootstrap-wrapper` class to `scss/bootstrap-grid.scss` (lines 55 and 65) and included the responsive utilities (line 63). In `scss/_variables.scss` I also enabled flex support on line 46.
+2. Modify the SCSS files as desired. For example, to generate this build I added the `.bootstrap-wrapper` class to `scss/bootstrap-grid.scss` (lines 55 and 72), included the responsive utilities (line 63), and manually added the `.img-fluid` class (lines 66-71). In `scss/_variables.scss` I also enabled flex support on line 46.
 3. Once you are done making your changes, use a program like [Koala](http://koala-app.com/) or Scout to compile the SCSS files into usable CSS files.
 
 As you can see, it is a very easy process to create your own customized Bootstrap build.
