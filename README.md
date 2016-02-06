@@ -17,7 +17,7 @@ There are times when you only want to use the excellent Bootstrap grid functiona
 
 ## Usage
 
-I have already taken the liberty of extracting the grid and responsive utilities mixins (for those who don't know how or don't want to bother keeping it updated), which can be found in `dist/css/bootstrap-grid.css`. I also wrapped the classes with the `.bootstrap-wrapper' class to avoid conflicts with other classes that may already be used in a project.
+I have already taken the liberty of extracting the grid and responsive utilities mixins (for those who don't know how or don't want to bother keeping it updated), which can be found in `dist/css/bootstrap-grid.css`. I also wrapped the classes with the `.bootstrap-wrapper` class to avoid conflicts with other classes that may already be used in a project.
 
 Simply download the appropriate CSS file and include it in your HTML header (you only need one):
 * `bootstrap-grid.css` - The expanded version
