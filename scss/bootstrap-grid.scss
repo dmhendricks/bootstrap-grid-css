@@ -57,16 +57,13 @@ $grid-gutter-width:          1.875rem !default; // 30px
 
   @import "mixins/clearfix";
   @import "mixins/breakpoints";
+  @import "mixins/image";
   @import "mixins/grid-framework";
   @import "mixins/grid";
 
   @import "utilities-responsive";
   @import "grid";
 
-  // Manually adding .img-fluid (formerly known as .img-responsive in Bootstrap 3) because it is so useful
-  .img-fluid {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
+  // Manually adding .img-fluid (formerly known as .img-responsive in Bootstrap 3)
+  .img-fluid { @include img-fluid(); }
 }
