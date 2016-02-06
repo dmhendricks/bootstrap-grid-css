@@ -1034,5 +1034,10 @@
     align-self: flex-end;
   }
 }
+.bootstrap-wrapper .img-fluid {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 /*# sourceMappingURL=bootstrap-grid.css.map */

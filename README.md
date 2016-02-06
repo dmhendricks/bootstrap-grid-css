@@ -14,6 +14,7 @@ There are times when you only want to use the excellent Bootstrap grid functiona
 
 * Grid framework (flex enabled)
 * Responsive Utilities
+* Manually added the `.img-fluid` class (formerly `.img-responsive` in Bootstrap 3)
 
 ## Usage
 
