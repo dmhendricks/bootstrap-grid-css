@@ -44,7 +44,15 @@ Documentation for the [grid framework](http://v4-alpha.getbootstrap.com/layout/g
 
 ## Custom Build Tutorial
 
-*Coming soon...*
+You can make your own custom build of Bootstrap by downloading the source, making changes to the SCSS files and compiling.
+
+Here is how you can accomplish what I have done here:
+
+1. Download and extract the Bootstrap [source files](http://v4-alpha.getbootstrap.com/getting-started/download/)
+2. Modify the SCSS files as desired. For example, to generate this build I added the `.bootstrap-wrapper` class to `scss/bootstrap-grid.scss` (lines 55 and 65) and included the responsive utilities (line 63). In `scss/_variables.scss` I also enabled flex support on line 46.
+3. Once you are done making your changes, use a program like [Koala](http://koala-app.com/) or Scout to compile the SCSS files into usable CSS files.
+
+As you can see, it is a very easy process to create your own customized Bootstrap build.
 
 ## Credits
 
