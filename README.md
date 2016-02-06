@@ -2,7 +2,7 @@
 
 **Version:** 4.0.0-alpha.2
 
-**License:** MIT ([https://github.com/twbs/bootstrap/blob/master/LICENSE](https://github.com/twbs/bootstrap/blob/master/LICENSE))
+**License/Copyright:** MIT ([https://github.com/twbs/bootstrap/blob/master/LICENSE](https://github.com/twbs/bootstrap/blob/master/LICENSE))
 
 ## Purpose
 
