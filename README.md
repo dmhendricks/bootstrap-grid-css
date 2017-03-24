@@ -1,4 +1,4 @@
-# bootstrap.grid.css
+# bootstrap-grid.css
 
 **Version:** 4.0.0-alpha.6
 
