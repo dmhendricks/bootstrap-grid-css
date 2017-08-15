@@ -2,15 +2,7 @@
   "name": "dmhendricks/bootstrap-grid-css",
   "description": "The grid and responsive utilities classes extracted from the Bootstrap 4 framework, compiled into CSS.",
   "version": "4.0.0-alpha.6",
-  "keywords": [
-    "css",
-    "bootstrap",
-    "grid",
-    "responsive",
-    "front-end",
-    "framework",
-    "web"
-  ],
+  "keywords": [ "css", "bootstrap", "grid", "responsive", "web" ],
   "homepage": "https://github.com/dmhendricks/bootstrap-grid-css",
   "contributors": [
     "Twitter, Inc.",
