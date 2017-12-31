@@ -1,10 +1,15 @@
+[![Latest Version](https://img.shields.io/github/release/dmhendricks/bootstrap-grid-css.svg)](https://github.com/dmhendricks/bootstrap-grid-css/releases)
+[![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://raw.githubusercontent.com/dmhendricks/bootstrap-grid-css/master/LICENSE)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/bootstrap-grid-css.svg?style=social)](https://twitter.com/danielhendricks)
+
 # bootstrap-grid.css
 
 **Version:** 4.0.0-alpha.6
 
 **License:** MIT ([https://github.com/twbs/bootstrap/blob/master/LICENSE](https://github.com/twbs/bootstrap/blob/master/LICENSE))
 
-**Contents Copyright:** (c) 2011-2017 Twitter, Inc.
+**Contents Copyright:** (c) 2011-2018 Twitter, Inc.
 
 ## Purpose
 
@@ -16,6 +21,12 @@ There are times when you only want to use the excellent Bootstrap grid functiona
 * Responsive Utilities
 * `.img-fluid` class (formerly `.img-responsive` in Bootstrap 3)
 * `clearfix` utility
+
+### Bower Installation
+
+```
+bower install bootstrap4-grid-only
+```
 
 ## Usage
 
