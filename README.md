@@ -47,6 +47,22 @@ Simply download the appropriate CSS file and include it in your HTML header (you
 
 Documentation for the [grid system](https://getbootstrap.com/docs/4.1/layout/grid/) may be found on the [Bootstrap web site](https://getbootstrap.com/).
 
+### Linking Stylesheets
+
+Linking to stylesheet example:
+
+```html
+<link rel="stylesheet" href="dist/css/bootstrap-grid.min.css" />
+```
+
+#### CDN: jsDelivr
+
+Supports both HTTP and HTTPS.
+
+```html
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/dmhendricks/bootstrap-grid-css@4.1.3/dist/css/bootstrap-grid.min.css" />
+```
+
 ### Basic Usage Example
 
 ```html
@@ -65,6 +81,8 @@ Documentation for the [grid system](https://getbootstrap.com/docs/4.1/layout/gri
 </div>
 ```
 
+See the [demo](https://dmhendricks.github.io/demo/bootstrap-grid-css/) for more information.
+
 ## Custom Build Tutorial
 
 You can make your own custom build of Bootstrap by downloading the source, making changes to the SCSS files and compiling.
@@ -73,4 +91,4 @@ Here is how to accomplish what I have done here:
 
 1. Download and extract the Bootstrap [source files](https://github.com/twbs/bootstrap/)
 2. Modify the SCSS files as desired. For example, to generate this build I added the `.bootstrap-wrapper` class to `scss/bootstrap-grid.scss` (lines 23 and 50), included the responsive utilities (line 43) and `.img-fluid` class (line 48). I also ported the `scss/utilities/_visibility.scss` [responsive utilities](http://v4-alpha.getbootstrap.com/layout/responsive-utilities/) that were found in alpha for convenience.
-3. Once you are done making your changes, use a program like [Koala](http://koala-app.com/) or [Scout](http://scout-app.io/) to compile the SCSS files into usable CSS files.
+3. Once you are done making your changes, use a program like [Koala](http://koala-app.com/) or [Scout](http://scout-app.io/) to compile the SCSS files into usable CSS files. If you have Gulp and npm installed, you can simply run the command: `gulp styles`
