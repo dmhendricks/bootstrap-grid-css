@@ -28,7 +28,7 @@ There are times when you only want to use the excellent Bootstrap grid functiona
 ### NPM
 
 ```bash
-npm install bootstrap-grid-only-css
+npm install bootstrap-grid-only-css --save
 ```
 
 ### Bower Installation
@@ -49,7 +49,7 @@ Documentation for the [grid system](https://getbootstrap.com/docs/4.1/layout/gri
 
 ### Linking Stylesheets
 
-Linking to stylesheet example:
+Add the following to the head of your web page:
 
 ```html
 <link rel="stylesheet" href="dist/css/bootstrap-grid.min.css" />
