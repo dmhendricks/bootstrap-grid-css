@@ -1,15 +1,14 @@
-[![Latest Version](https://img.shields.io/github/release/dmhendricks/bootstrap-grid-css.svg)](https://github.com/dmhendricks/bootstrap-grid-css/releases)
+[![Developer](https://img.shields.io/badge/developer-Daniel%20M.%20Hendricks-lightgrey.svg?colorB=9900cc )](https://www.danhendricks.com?utm_source=github.com&utm_medium=campaign&utm_content=button&utm_campaign=dmhendricks%2Ffile-icon-vectors)
+[![Release](https://img.shields.io/github/release/dmhendricks/bootstrap-grid-css.svg)](https://github.com/dmhendricks/bootstrap-grid-css/releases)
 [![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://raw.githubusercontent.com/dmhendricks/bootstrap-grid-css/master/LICENSE)
+[![GitHub Downloads](https://img.shields.io/packagist/dt/dmhendricks/bootstrap-grid-css.svg?label=GitHub%20downloads)](https://github.com/dmhendricks/bootstrap-grid-css/releases)
+[![NPM Downloads](https://img.shields.io/npm/dt/file-icon-vectors.svg?label=npm%20downloads)](https://www.npmjs.com/package/file-icon-vectors?utm_source=github.com&utm_medium=referral&utm_content=button&utm_campaign=dmhendricks%2Ffile-icon-vectors)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/bootstrap-grid-css.svg?style=social)](https://twitter.com/danielhendricks)
 
 # bootstrap-grid.css
 
-**Version:** 4.0.0-alpha.6
-
-**License:** MIT ([https://github.com/twbs/bootstrap/blob/master/LICENSE](https://github.com/twbs/bootstrap/blob/master/LICENSE))
-
-**Contents Copyright:** (c) 2011-2018 Twitter, Inc.
+**Original Copyright:** (c) 2011-2018 Twitter, Inc.
 
 ## Purpose
 
@@ -22,9 +21,17 @@ There are times when you only want to use the excellent Bootstrap grid functiona
 * `.img-fluid` class (formerly `.img-responsive` in Bootstrap 3)
 * `clearfix` utility
 
+## Installation
+
+### NPM
+
+```bash
+npm install bootstrap-grid-css
+```
+
 ### Bower Installation
 
-```
+```bash
 bower install bootstrap4-grid-only
 ```
 
@@ -63,13 +70,3 @@ Here is how you can accomplish what I have done here:
 1. Download and extract the Bootstrap [source files](http://v4-alpha.getbootstrap.com/getting-started/download/)
 2. Modify the SCSS files as desired. For example, to generate this build I added the `.bootstrap-wrapper` class to `scss/bootstrap-grid.scss` (lines 36 and 62), included the responsive utilities (line 43) and `.img-fluid` class (lines 59-60).
 3. Once you are done making your changes, use a program like [Koala](http://koala-app.com/) or [Scout](http://scout-app.io/) to compile the SCSS files into usable CSS files.
-
-## Credits
-
-Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowing the people behind a web site. It's an unobtrusive text file that contains information about the different people who have contributed to building the web site.
-
-**Twitter Bootstrap 4:**
-
-	URL: https://getbootstrap.com
-	Author: The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-	Twitter: @getbootstrap
