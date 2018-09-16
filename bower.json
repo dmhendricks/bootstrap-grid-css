@@ -6,7 +6,10 @@
   "license": "MIT",
   "ignore": [
     "*.md",
-    "*.json"
+    "*.json",
+    "scss/*",
+    "gulpfile.js",
+    ".gitignore"
   ],
   "keywords": [
     "css",

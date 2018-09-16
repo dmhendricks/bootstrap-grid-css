@@ -1,19 +1,12 @@
 /*!
- * Bootstrap 4.0.0-alpha.6 (grid and responsive utilities)
+ * Bootstrap Grid Only (grid and responsive utilities extracted from Bootstrap 4.1.3)
  * GitHub: https://github.com/dmhendricks/bootstrap-grid-css
- * License: MIT (https://github.com/twbs/bootstrap/blob/v4-dev/LICENSE)
+ * Bootstrap License: MIT (https://github.com/twbs/bootstrap/blob/v4-dev/LICENSE)
  * Credits: Twitter, Inc. & The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  */
 
-// Includes relevant variables and mixins for the flexbox grid
-// system, as well as the generated predefined classes (e.g., `.col-sm-4`).
-
-//
-// Box sizing, responsive, and more
-//
-
 @at-root {
-  @-ms-viewport { width: device-width; }
+  @-ms-viewport { width: device-width; } // stylelint-disable-line at-rule-no-vendor-prefix
 }
 
 html {
@@ -27,25 +20,18 @@ html {
   box-sizing: inherit;
 }
 
-//
-// Variables
-//
-
-@import "variables";
-
-//
-// Grid mixins
-//
-
 .bootstrap-wrapper {
 
+  @import "functions";
+  @import "variables";
+
+  @import "mixins/text-emphasis";
   @import "mixins/breakpoints";
   @import "mixins/clearfix";
   @import "mixins/breakpoints";
   @import "mixins/hover";
   @import "mixins/image";
   @import "mixins/visibility";
-  @import "mixins/text-emphasis";
   @import "mixins/text-hide";
   @import "mixins/text-truncate";
   @import "mixins/grid-framework";
@@ -53,14 +39,12 @@ html {
 
   @import "custom";
 
-  @import "utilities/align";
   @import "utilities/clearfix";
-  @import "utilities/text";
   @import "utilities/visibility";
 
   @import "grid";
 
-  // Manually adding .img-fluid (formerly known as .img-responsive in Bootstrap 3)
+  // Create .img-fluid CSS class
   .img-fluid { @include img-fluid(); }
 
 }

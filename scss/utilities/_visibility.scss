@@ -2,11 +2,15 @@
 // Visibility utilities
 //
 
-.invisible {
-  @include invisible();
+.visible {
+  @include invisible(visible);
 }
 
-// Responsive visibility utilities
+.invisible {
+  @include invisible(hidden);
+}
+
+// Responsive visibility utilities from v4.0.0-alpha-6
 
 @each $bp in map-keys($grid-breakpoints) {
   .hidden-#{$bp}-up {
@@ -21,10 +25,7 @@
   }
 }
 
-
 // Print utilities
-//
-// Media queries are placed on the inside to be mixin-friendly.
 
 .visible-print-block {
   display: none !important;
