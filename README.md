@@ -28,7 +28,7 @@ There are times when you only want to use the excellent Bootstrap grid functiona
 ### NPM
 
 ```bash
-npm install bootstrap-grid-css
+npm install bootstrap-grid-only-css
 ```
 
 ### Bower Installation
