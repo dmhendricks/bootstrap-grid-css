@@ -4,12 +4,16 @@
   "author": "Daniel M. Hendricks",
   "version": "4.1.3",
   "license": "MIT",
-  "keywords": [ "css", "bootstrap", "responsive", "grid" ],
+  "keywords": [
+    "css",
+    "bootstrap",
+    "responsive",
+    "grid"
+  ],
   "devDependencies": {
     "gulp": "^4.0",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-filter": "^5.1.0",
-    "gulp-imagemin": "^4.1.0",
     "gulp-line-ending-corrector": "^1.0.2",
     "gulp-cache": "^1.0.2",
     "gulp-notify": "^3.1",

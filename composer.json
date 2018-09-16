@@ -1,7 +1,7 @@
 {
   "name": "dmhendricks/bootstrap-grid-css",
   "description": "The grid and responsive utilities classes extracted from the Bootstrap 4 framework, compiled into CSS.",
-  "keywords": [ "css", "bootstrap", "grid", "responsive", "web" ],
+  "keywords": [ "css", "bootstrap", "responsive", "grid" ],
   "homepage": "https://github.com/dmhendricks/bootstrap-grid-css",
   "authors": [
     {
