@@ -35,9 +35,9 @@ gulp.task( 'styles', function() {
 		.pipe( gulp.dest( './dist/css' ) )
 		.pipe( filter( '**/*.css' ) )
 		.pipe( rename( { suffix: '.min' } ) )
-		.pipe( minifycss( { maxLineLen: 10 } ) )
+		.pipe( minifycss() )
 		.pipe( lineec() )
-		.pipe( gulp.dest( './dist' ) )
+		.pipe( gulp.dest( './dist/css' ) )
 		.pipe( notify({ message: 'TASK: "styles" completed', onLast: true }) );
 });
 
