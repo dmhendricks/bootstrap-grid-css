@@ -1,7 +1,7 @@
 [![Developer](https://img.shields.io/badge/developer-Daniel%20M.%20Hendricks-lightgrey.svg?colorB=9900cc )](https://www.danhendricks.com?utm_source=github.com&utm_medium=campaign&utm_content=button&utm_campaign=dmhendricks%2Fbootstrap-grid-css)
 [![Release](https://img.shields.io/github/release/dmhendricks/bootstrap-grid-css.svg)](https://github.com/dmhendricks/bootstrap-grid-css/releases)
 [![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://raw.githubusercontent.com/dmhendricks/bootstrap-grid-css/master/LICENSE)
-[![GitHub Downloads](https://img.shields.io/packagist/dt/dmhendricks/bootstrap-grid-css.svg?label=GitHub%20downloads)](https://github.com/dmhendricks/bootstrap-grid-css/releases)
+[![GitHub Downloads](https://img.shields.io/github/downloads/dmhendricks/bootstrap-grid-css/total.svg?label=GitHub%20downloads)](https://github.com/dmhendricks/bootstrap-grid-css/releases)
 [![NPM Downloads](https://img.shields.io/npm/dt/bootstrap-grid-only-css.svg?label=npm%20downloads)](https://www.npmjs.com/package/bootstrap-grid-only-css?utm_source=github.com&utm_medium=referral&utm_content=button&utm_campaign=dmhendricks%2Fbootstrap-grid-css)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/bootstrap-grid-css.svg?style=social)](https://twitter.com/danielhendricks)
