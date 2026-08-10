@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "types": ["node"],
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+
+    // Node runs these files directly by stripping types, which cannot handle
+    // enums, namespaces or parameter properties. Reject them at type-check time
+    // rather than discovering it at runtime.
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": true,
+
+    // Type-checking only: nothing here is ever compiled to JavaScript.
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": ["test/**/*.ts", "scripts/**/*.ts", "playwright.config.ts"]
+}

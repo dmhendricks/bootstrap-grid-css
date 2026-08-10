@@ -26,11 +26,16 @@
     "dev:demo": "vite --config vite.config.demo.mjs",
     "build:demo": "vite build --config vite.config.demo.mjs",
     "preview:demo": "vite preview --config vite.config.demo.mjs",
-    "test:e2e": "playwright test"
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test",
+    "test:e2e:live": "PLAYWRIGHT_BASE_URL=https://dmhendricks.github.io/bootstrap-grid-css/ playwright test",
+    "test": "npm run typecheck && npm run test:e2e"
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
+    "@types/node": "^26.2.0",
     "sugar-high": "^2.0.0",
+    "typescript": "^7.0.2",
     "vite": "^7.1.12"
   },
   "repository": {

@@ -5,7 +5,7 @@
 
 # bootstrap-grid.css
 
-### :pushpin: [View Demo](https://dmhendricks.github.io/demo/bootstrap-grid-css/)
+[View Demo](https://dmhendricks.github.io/demo/bootstrap-grid-css/)
 
 ## Purpose
 
