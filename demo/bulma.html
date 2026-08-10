@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coexistence check — Bulma 1 + bootstrap-grid-only-css</title>
+
+  <!--
+    Bulma 1.0.4. The strictest of the coexistence tests: measured against the real
+    stylesheet, Bulma and this package share 66 class names — .container plus the whole
+    .m-*/.p-* spacing family — and Bulma's spacing scale DIFFERS from Bootstrap's
+    (.p-3 is .75rem in Bulma, 1rem here). A leak would therefore not merely be visible,
+    it would silently reproportion a page in a way that still looks plausible.
+  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+
+  <!--
+    Our grid, from the LOCAL build, loaded AFTER Bulma — the least favourable source
+    order for us. Loaded via a module import (src/grid.js) so Vite emits ONE shared,
+    hashed stylesheet cached across pages, rather than inlining ~90KB into every page.
+    Serve over HTTP — `npm run dev:demo` — since a module import is blocked by CORS
+    from a file:// origin; the page says so plainly if the grid is missing.
+  -->
+  <script type="module" src="./src/grid.js"></script>
+
+  <style>
+    /* Page chrome only, sharing index.html's tokens so the demos feel of a piece. */
+    :root {
+      --ink: #16181d;
+      --ink-soft: #5a6072;
+      --bg: #ffffff;
+      --bg-soft: #f5f6f8;
+      --line: #e3e5ea;
+      --accent: #6b21a8;
+      --box: #ede9fe;
+      --box-line: #c4b5fd;
+      --ok: #15803d;
+      --bad: #b91c1c;
+      --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #e8eaf0;
+        --ink-soft: #9aa1b4;
+        --bg: #14161a;
+        --bg-soft: #1b1e24;
+        --line: #2b2f38;
+        --accent: #c4a2f7;
+        --box: #2d2545;
+        --box-line: #4c3f78;
+        --ok: #4ade80;
+        --bad: #f87171;
+      }
+    }
+
+    /*
+     * Bulma hard-codes light colours on body/headings, so re-assert ours. Scoped to
+     * .page-* and .probe so nothing here can be mistaken for the grid's doing.
+     */
+    body { background: var(--bg) !important; color: var(--ink) !important; }
+    .page h1, .page h2 { color: var(--ink) !important; }
+    .page { max-width: 1080px; margin-inline: auto; padding: 2rem 1.5rem 4rem; }
+    .page h1 { font-size: 1.75rem; letter-spacing: -0.02em; margin-bottom: .5rem; }
+    .page h2 { font-size: 1.15rem; margin: 0 0 .35rem; }
+    .page .lede, .page .note { color: var(--ink-soft) !important; }
+    .page .note { font-size: .9375rem; margin: 0 0 1rem; max-width: 72ch; }
+    .page section { padding: 2rem 0; border-bottom: 1px solid var(--line); }
+    .page section:last-of-type { border-bottom: 0; }
+
+    .probe { outline: 1px dashed var(--box-line); }
+    .swatch {
+      background: var(--box); color: var(--ink);
+      border: 1px solid var(--box-line); border-radius: 5px;
+      padding: .75rem; font: .8125rem/1.4 var(--mono); text-align: center;
+    }
+    .swatch--alt { background: var(--bg-soft); }
+
+    .verdict { font: 13px/1.6 var(--mono); color: var(--ink); }
+    .verdict td { padding: 3px 12px 3px 0; vertical-align: top; }
+    .verdict .detail { color: var(--ink-soft); }
+    .pass { color: var(--ok); font-weight: 700; }
+    .fail { color: var(--bad); font-weight: 700; }
+    #verdict {
+      background: var(--bg-soft); border: 1px solid var(--line);
+      border-radius: 8px; padding: 1rem 1.25rem; overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <h1>Bulma 1 + <code>bootstrap-grid-only-css</code></h1>
+  <p class="lede">
+    Both stylesheets are live, ours loaded <em>after</em> Bulma. The two vocabularies share
+    <strong>66 class names</strong> — including <code>.container</code> and the entire
+    <code>.m-*</code>/<code>.p-*</code> spacing scale, which Bulma sizes differently.
+    Every check below is computed from live layout geometry.
+  </p>
+
+  <!-- 1. Bulma's own columns must be untouched. -->
+  <section>
+    <h2>1. Bulma columns, unaffected</h2>
+    <p class="note">
+      Bulma's <code>.columns</code> + <code>.column.is-one-third</code> must stay thirds.
+      Bulma owns <code>.columns</code>; we own <code>.row</code>. Different names, same job.
+    </p>
+    <div class="columns" id="bulma-cols">
+      <div class="column is-one-third"><div class="probe swatch swatch--alt">.column .is-one-third</div></div>
+      <div class="column is-one-third"><div class="probe swatch swatch--alt">.column .is-one-third</div></div>
+      <div class="column is-one-third"><div class="probe swatch swatch--alt">.column .is-one-third</div></div>
+    </div>
+  </section>
+
+  <!--
+    2. The sharpest test in any of these pages. Bulma's .p-3 is .75rem; ours is 1rem.
+    Both stylesheets define the class, ours loads later, and ours is !important — so if
+    scoping failed, this element would silently grow by 4px per side.
+  -->
+  <section>
+    <h2>2. Divergent spacing scales — <code>.p-3</code>, <code>.m-4</code></h2>
+    <p class="note">
+      Bulma's <code>.p-3</code> is <code>0.75rem</code>; ours is <code>1rem</code>. Outside
+      the wrapper Bulma's value must win, even though our rule is later in source order
+      and carries <code>!important</code>. This is the check a scoping regression breaks first.
+    </p>
+    <div class="probe p-3" id="bulma-spacing" style="display:inline-block">
+      <span class="swatch swatch--alt" style="display:block">.p-3 — expect Bulma's 0.75rem</span>
+    </div>
+  </section>
+
+  <!-- 3. Shared .container, which both frameworks define with different max-widths. -->
+  <section>
+    <h2>3. Shared <code>.container</code></h2>
+    <p class="note">
+      Both define <code>.container</code>. Outside the wrapper it must resolve to Bulma's,
+      which is fluid up to its own breakpoints rather than Bootstrap's stepped max-widths.
+    </p>
+    <div class="container probe" id="bulma-container">
+      <div class="swatch swatch--alt">.container — Bulma's</div>
+    </div>
+  </section>
+
+  <!-- 4. Our grid inside the wrapper. -->
+  <section>
+    <h2>4. Our grid, inside the wrapper</h2>
+    <p class="note">
+      Identical Bootstrap markup under <code>.bootstrap-wrapper</code>: thirds, an offset,
+      and <code>justify-content-center</code> (the utility from issue #1).
+    </p>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="row" id="bs-thirds">
+          <div class="col-4"><div class="probe swatch">.col-4</div></div>
+          <div class="col-4"><div class="probe swatch">.col-4</div></div>
+          <div class="col-4"><div class="probe swatch">.col-4</div></div>
+        </div>
+        <div class="row" id="bs-offset">
+          <div class="col-6 offset-3"><div class="probe swatch">.col-6 .offset-3</div></div>
+        </div>
+        <div class="row justify-content-center" id="bs-center">
+          <div class="col-3"><div class="probe swatch">.col-3 centred</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Our spacing utilities must work INSIDE the wrapper, at our scale. -->
+  <section>
+    <h2>5. Our <code>.p-3</code> inside the wrapper</h2>
+    <p class="note">
+      The mirror of check 2: inside the wrapper, the same class name must resolve to
+      <em>our</em> <code>1rem</code>. Scoping has to work in both directions — ours in,
+      theirs out.
+    </p>
+    <div class="bootstrap-wrapper">
+      <div class="probe p-3" id="bs-spacing" style="display:inline-block">
+        <span class="swatch" style="display:block">.p-3 — expect our 1rem</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Mixed: our layout carrying Bulma components. -->
+  <section>
+    <h2>6. Bulma components inside our grid</h2>
+    <p class="note">
+      The realistic mixed usage: our columns for layout, Bulma's components for the
+      contents. Both must remain fully effective.
+    </p>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="row" id="bs-mixed">
+          <div class="col-md-8">
+            <div class="notification is-primary probe">Bulma <code>.notification.is-primary</code> in <code>.col-md-8</code></div>
+          </div>
+          <div class="col-md-4">
+            <button class="button is-link">Bulma button</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Verdict</h2>
+    <div id="verdict">
+      <p class="verdict">running…</p>
+    </div>
+  </section>
+</div>
+
+<script type="module">
+  const px = v => parseFloat(v) || 0
+  const box = el => el.getBoundingClientRect()
+  const css = el => getComputedStyle(el)
+  const rem = () => parseFloat(css(document.documentElement).fontSize)
+
+  // Wait for layout to stabilise so measurements aren't racing the stylesheets.
+  const settled = async () => {
+    await document.fonts?.ready
+    let last = -1
+    for (let i = 0; i < 60; i++) {
+      await new Promise(r => requestAnimationFrame(() => setTimeout(r, 50)))
+      const w = box(document.querySelector('#bs-thirds > *')).width
+      if (Math.abs(w - last) < 0.5 && w > 0) return
+      last = w
+    }
+  }
+
+  const checks = () => {
+    const out = []
+    const add = (name, pass, detail) => out.push({ name, pass, detail })
+    const frac = id => {
+      const el = document.getElementById(id)
+      const total = box(el).width
+      return [...el.children].map(c => box(c).width / total)
+    }
+
+    // 1. Bulma's columns still thirds. Bulma uses padding gutters, so assert
+    //    equal-and-near-a-third rather than an exact percentage.
+    const bc = frac('bulma-cols')
+    const even = Math.max(...bc) - Math.min(...bc) < 0.01
+    add('Bulma .columns thirds intact',
+      bc.length === 3 && even && bc.every(f => f > 0.28 && f < 0.36),
+      bc.map(f => (f * 100).toFixed(1) + '%').join(' / ') + (even ? ' (equal)' : ' (UNEVEN)'))
+
+    // 2. THE key check: divergent spacing scale, outside the wrapper.
+    const bp = px(css(document.getElementById('bulma-spacing')).padding)
+    const bulmaExpected = 0.75 * rem()
+    const oursWouldBe = 1 * rem()
+    add('.p-3 outside wrapper keeps Bulma\'s 0.75rem',
+      Math.abs(bp - bulmaExpected) < 1.5,
+      `${bp.toFixed(1)}px (Bulma ${bulmaExpected.toFixed(0)}, ours would be ${oursWouldBe.toFixed(0)})`)
+
+    // 3. Shared .container resolves to Bulma's, i.e. no Bootstrap gutter vars on it.
+    const ct = css(document.getElementById('bulma-container'))
+    const gutter = ct.getPropertyValue('--bs-gutter-x').trim()
+    add('.container outside wrapper is Bulma\'s', gutter === '',
+      `--bs-gutter-x:${gutter || '(unset)'}`)
+
+    // 4a. Our thirds.
+    const bt = frac('bs-thirds')
+    add('Our .col-4 thirds work', bt.every(f => Math.abs(f - 1 / 3) < 0.03),
+      bt.map(f => (f * 100).toFixed(1) + '%').join(' / '))
+
+    // 4b. Offset.
+    const or = document.getElementById('bs-offset')
+    const shift = (box(or.firstElementChild).left - box(or).left) / box(or).width
+    add('.offset-3 shifts by ~25%', Math.abs(shift - 0.25) < 0.03,
+      `shift ${(shift * 100).toFixed(1)}%`)
+
+    // 4c. justify-content-center (issue #1).
+    const ctr = document.getElementById('bs-center')
+    const lead = box(ctr.firstElementChild).left - box(ctr).left
+    const trail = box(ctr).right - box(ctr.firstElementChild).right
+    add('justify-content-center centres (issue #1)', Math.abs(lead - trail) <= 2.5,
+      `lead ${lead.toFixed(1)}px vs trail ${trail.toFixed(1)}px`)
+
+    // 5. The mirror of check 2: our scale applies INSIDE the wrapper.
+    const op = px(css(document.getElementById('bs-spacing')).padding)
+    add('.p-3 inside wrapper uses our 1rem',
+      Math.abs(op - oursWouldBe) < 1.5,
+      `${op.toFixed(1)}px (ours ${oursWouldBe.toFixed(0)}, Bulma's would be ${bulmaExpected.toFixed(0)})`)
+
+    // 6. Mixed: our 2:1 layout plus a painted Bulma component.
+    const mixed = document.getElementById('bs-mixed')
+    const mf = frac('bs-mixed')
+    const notif = css(mixed.querySelector('.notification'))
+    const painted = notif.backgroundColor !== 'rgba(0, 0, 0, 0)' && px(notif.borderRadius) > 0
+    const desktop = matchMedia('(min-width: 768px)').matches
+    const layoutOk = desktop
+      ? Math.abs(mf[0] - 2 / 3) < 0.03 && Math.abs(mf[1] - 1 / 3) < 0.03
+      : mf.every(f => Math.abs(f - 1) < 0.03)
+    add('Bulma components inside our columns', layoutOk && painted,
+      `${desktop ? 'md+: 2:1' : '<md: stacked'} → ${mf.map(f => (f * 100).toFixed(1) + '%').join(' / ')}, ` +
+      `notification painted:${painted}`)
+
+    // 7. Nothing in our stylesheet is unscoped.
+    const unscoped = []
+    let readable = false
+    for (const sheet of document.styleSheets) {
+      // Every cssRules access must sit inside the try: reading it on a cross-origin
+      // sheet throws SecurityError, and doing that in the `isOurs` test aborted the
+      // whole checks() run before any verdict could render.
+      try {
+        const isOurs = sheet.href?.includes('bootstrap-grid') ||
+          [...sheet.cssRules].some(r => r.selectorText?.includes('bootstrap-wrapper'))
+        if (!isOurs) continue
+        const walk = rules => {
+          for (const r of rules) {
+            if (r.cssRules) { walk(r.cssRules); continue }
+            if (r.selectorText && !/\.bootstrap-wrapper/.test(r.selectorText)) unscoped.push(r.selectorText)
+          }
+        }
+        walk(sheet.cssRules)
+        readable = true
+      } catch { /* cross-origin: cannot inspect, reported below */ }
+    }
+    add(readable ? 'Every rule in our CSS is scoped' : 'Scoping audit (stylesheet not readable)',
+      readable ? unscoped.length === 0 : true,
+      !readable ? 'skipped — CSSOM blocked, see the geometry checks above'
+        : unscoped.length ? `${unscoped.length} unscoped: ${unscoped.slice(0, 3).join(', ')}`
+        : 'no unscoped rules')
+
+    return out
+  }
+
+  await settled()
+
+  // Detect by BEHAVIOUR, not stylesheet presence: a 404'd @import still appears in
+  // document.styleSheets, and a naive href test can match another framework's sheet.
+  const loaded = css(document.querySelector('.bootstrap-wrapper .row')).display === 'flex'
+  const diag = `${innerWidth}×${innerHeight} · dpr ${devicePixelRatio} · ` +
+    `sheets ${document.styleSheets.length} · ours ${loaded ? 'loaded' : 'MISSING'}`
+
+  if (!loaded) {
+    document.getElementById('verdict').innerHTML = `
+      <p class="verdict" style="margin:0">
+        <strong class="fail">✗ bootstrap-grid.css did not load — checks below are meaningless</strong><br>
+        <span class="detail">${diag}</span><br><br>
+        Run <code>npm run build</code> first, then serve this page:<br>
+        <code>npm run dev:demo</code> → <code>http://localhost:5173/bootstrap-grid-css/bulma.html</code>
+      </p>`
+    throw new Error('bootstrap-grid.css not loaded')
+  }
+
+  const results = checks()
+  const failed = results.filter(r => !r.pass).length
+
+  document.getElementById('verdict').innerHTML = `
+    <p class="verdict" style="margin:0 0 .75rem">
+      <strong class="${failed ? 'fail' : 'pass'}">
+        ${failed ? `✗ ${failed} of ${results.length} checks FAILED` : `✓ all ${results.length} checks passed`}
+      </strong>
+      &nbsp;— Bulma 1.0.4 + local dist build
+      <br><span class="detail">${diag}</span>
+    </p>
+    <table class="verdict"><tbody>
+      ${results.map(r => `
+        <tr>
+          <td class="${r.pass ? 'pass' : 'fail'}">${r.pass ? '✓' : '✗'}</td>
+          <td>${r.name}</td>
+          <td class="detail">${r.detail}</td>
+        </tr>`).join('')}
+    </tbody></table>`
+
+  console.log(`[coexistence] Bulma: ${results.length - failed}/${results.length} passed`)
+  results.filter(r => !r.pass).forEach(r => console.error('FAIL:', r.name, '—', r.detail))
+</script>
+
+</body>
+</html>

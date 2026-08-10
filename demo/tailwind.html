@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coexistence check — Tailwind 4 + bootstrap-grid-only-css</title>
+
+  <!-- Tailwind 4, browser build. Scans the DOM and generates utilities at runtime. -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js"></script>
+
+  <!--
+    Our grid, loaded from the LOCAL build (../dist/css) rather than a CDN, so this
+    page tests the exact bytes `npm run build` just produced. Loaded second, i.e.
+    the least favourable order for us: if our rules were going to trample
+    Tailwind's, later source order is when it would happen.
+
+    Loaded via a module import (src/grid.js) so Vite emits ONE shared, hashed
+    stylesheet cached across pages, rather than inlining ~90KB into every page.
+    Serve over HTTP — `npm run dev:demo` — since a module import is blocked by
+    CORS from a file:// origin; the page says so plainly if the grid is missing.
+  -->
+  <script type="module" src="./src/grid.js"></script>
+
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; }
+    .probe { outline: 1px dashed #94a3b8; }
+    /* Deliberately NOT Tailwind — proves the verdict panel isn't itself styled by it. */
+    .verdict { font: 13px/1.6 ui-monospace, Menlo, monospace; }
+    .verdict td { padding: 3px 10px 3px 0; vertical-align: top; }
+    .pass { color: #15803d; font-weight: 700; }
+    .fail { color: #b91c1c; font-weight: 700; }
+
+    /* Match index.html: the verdict table is plain CSS, so flip it explicitly. */
+    .verdict .detail { color: #5a6072; }
+
+    @media (prefers-color-scheme: dark) {
+      .pass { color: #4ade80; }
+      .fail { color: #f87171; }
+      .verdict { color: #e8eaf0; }
+      .verdict .detail { color: #9aa1b4; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+
+<header class="mx-auto max-w-5xl px-6 pt-10 pb-6">
+  <h1 class="text-3xl font-bold tracking-tight">Tailwind 4 + <code class="text-purple-700">bootstrap-grid-only-css</code></h1>
+  <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">
+    Both stylesheets are live on this page. Every check below is computed from real
+    layout geometry at the bottom of the page — nothing here is asserted by hand.
+  </p>
+</header>
+
+<main class="mx-auto max-w-5xl px-6 pb-16 space-y-10">
+
+  <!-- 1. Tailwind's own layout must be untouched by our grid. -->
+  <section>
+    <h2 class="text-xl font-semibold">1. Tailwind layout, unaffected</h2>
+    <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">
+      A Tailwind <code>grid-cols-4</code> layout. Our stylesheet must not alter it.
+    </p>
+    <div id="tw-grid" class="grid grid-cols-4 gap-3">
+      <div class="probe rounded bg-purple-100 dark:bg-purple-950 p-3 text-sm">grid-cols-4</div>
+      <div class="probe rounded bg-purple-100 dark:bg-purple-950 p-3 text-sm">grid-cols-4</div>
+      <div class="probe rounded bg-purple-100 dark:bg-purple-950 p-3 text-sm">grid-cols-4</div>
+      <div class="probe rounded bg-purple-100 dark:bg-purple-950 p-3 text-sm">grid-cols-4</div>
+    </div>
+  </section>
+
+  <!--
+    2. The collision test. These class NAMES exist in both vocabularies:
+       .container .row .clearfix .visible .invisible .order-1
+    Outside the wrapper, ours must not apply.
+  -->
+  <section>
+    <h2 class="text-xl font-semibold">2. Colliding class names, outside the wrapper</h2>
+    <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">
+      <code>.container</code> and <code>.row</code> are Bootstrap grid classes. Here they sit
+      outside <code>.bootstrap-wrapper</code>, styled only by Tailwind's
+      <code>flex</code>/<code>w-1/2</code>. If our grid leaked, these would pick up
+      Bootstrap's flex-wrap, gutters and negative margins.
+    </p>
+    <div id="tw-collide" class="container row flex gap-3">
+      <div class="probe w-1/2 rounded bg-amber-100 dark:bg-amber-950 p-3 text-sm">.container .row — Tailwind only</div>
+      <div class="probe w-1/2 rounded bg-amber-100 dark:bg-amber-950 p-3 text-sm">w-1/2 each</div>
+    </div>
+  </section>
+
+  <!-- 3. Our grid must work fully inside the wrapper. -->
+  <section>
+    <h2 class="text-xl font-semibold">3. Our grid, inside the wrapper</h2>
+    <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">
+      Identical Bootstrap markup, now wrapped. Thirds, an offset, and
+      <code>justify-content-center</code> (the issue #1 utility) must all work.
+    </p>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="row" id="bs-thirds">
+          <div class="col-4"><div class="probe rounded bg-emerald-100 dark:bg-emerald-950 p-3 text-sm">.col-4</div></div>
+          <div class="col-4"><div class="probe rounded bg-emerald-100 dark:bg-emerald-950 p-3 text-sm">.col-4</div></div>
+          <div class="col-4"><div class="probe rounded bg-emerald-100 dark:bg-emerald-950 p-3 text-sm">.col-4</div></div>
+        </div>
+        <div class="row" id="bs-offset">
+          <div class="col-6 offset-3"><div class="probe rounded bg-emerald-100 dark:bg-emerald-950 p-3 text-sm">.col-6 .offset-3</div></div>
+        </div>
+        <div class="row justify-content-center" id="bs-center">
+          <div class="col-3"><div class="probe rounded bg-emerald-100 dark:bg-emerald-950 p-3 text-sm">.col-3 centred</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. The interesting one: both vocabularies on the SAME element. -->
+  <section>
+    <h2 class="text-xl font-semibold">4. Both vocabularies, same element</h2>
+    <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">
+      Inside the wrapper, Bootstrap columns carrying Tailwind utilities for colour, padding
+      and rounding. This is the realistic mixed usage: our grid for layout, Tailwind for
+      everything else.
+    </p>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="row" id="bs-mixed">
+          <div class="col-md-8">
+            <div class="probe rounded-lg bg-gradient-to-r from-purple-200 to-pink-200 p-4 text-sm font-medium shadow">
+              .col-md-8 + Tailwind gradient/shadow
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="probe rounded-lg bg-slate-800 p-4 text-sm font-medium text-white shadow">
+              .col-md-4 + Tailwind dark
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Global-element check: the v4 build leaked `html` and `*`. -->
+  <section>
+    <h2 class="text-xl font-semibold">5. No global element styling</h2>
+    <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">
+      The Bootstrap 4 build of this package leaked <code>html</code> and
+      <code>*, *::before, *::after</code> into global scope. The v5 build must not — Tailwind's
+      own preflight owns those.
+    </p>
+    <div id="tw-box" class="probe w-64 border-4 border-slate-400 dark:border-slate-600 p-4 text-sm">
+      width:16rem + 4px border + 1rem padding
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-xl font-semibold">Verdict</h2>
+    <div id="verdict" class="mt-3 rounded-lg border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-800 p-4">
+      <p class="verdict">running…</p>
+    </div>
+  </section>
+
+</main>
+
+<script type="module">
+  const px = v => parseFloat(v) || 0
+  const box = el => el.getBoundingClientRect()
+  const css = el => getComputedStyle(el)
+
+  // Tailwind's browser build generates CSS from the DOM asynchronously, and our
+  // stylesheet arrives via a module import. Wait for both to settle before measuring,
+  // otherwise the checks race the stylesheets and report nonsense.
+  const settled = async () => {
+    await document.fonts?.ready
+    let last = -1
+    for (let i = 0; i < 60; i++) {
+      await new Promise(r => requestAnimationFrame(() => setTimeout(r, 50)))
+      const w = box(document.querySelector('#tw-grid > *')).width
+      if (Math.abs(w - last) < 0.5 && w > 0) return
+      last = w
+    }
+  }
+
+  const checks = () => {
+    const out = []
+    const add = (name, pass, detail) => out.push({ name, pass, detail })
+
+    // 1. Tailwind's grid still lays out as 4 equal tracks.
+    const tw = document.getElementById('tw-grid')
+    const cells = [...tw.children].map(c => box(c).width)
+    const even = Math.max(...cells) - Math.min(...cells) < 1.5
+    const isGrid = css(tw).display === 'grid'
+    add('Tailwind grid-cols-4 intact', isGrid && even,
+      `display:${css(tw).display}, widths ${cells.map(w => w.toFixed(1)).join(' / ')}`)
+
+    // 2. .container/.row outside the wrapper get NOTHING from us.
+    //    Bootstrap's .row sets flex-wrap:wrap and negative margins; Tailwind's
+    //    `flex` alone leaves nowrap and zero margin.
+    const col = document.getElementById('tw-collide')
+    const c = css(col)
+    const clean = c.flexWrap === 'nowrap' && px(c.marginLeft) === 0 && px(c.marginRight) === 0
+    add('Colliding .container/.row not styled by us', clean,
+      `flex-wrap:${c.flexWrap}, margin-inline:${c.marginLeft}/${c.marginRight}`)
+
+    // 3a. Thirds inside the wrapper.
+    const thirds = [...document.getElementById('bs-thirds').children].map(c => box(c).width)
+    const rowW = box(document.getElementById('bs-thirds')).width
+    const isThird = thirds.every(w => Math.abs(w / rowW - 1 / 3) < 0.02)
+    add('Bootstrap .col-4 thirds work', isThird,
+      thirds.map(w => (w / rowW * 100).toFixed(1) + '%').join(' / '))
+
+    // 3b. Offset actually offsets by a quarter.
+    const offRow = document.getElementById('bs-offset')
+    const offCol = offRow.firstElementChild
+    const shift = (box(offCol).left - box(offRow).left) / box(offRow).width
+    add('.offset-3 shifts by ~25%', Math.abs(shift - 0.25) < 0.03,
+      `shift ${(shift * 100).toFixed(1)}%`)
+
+    // 3c. justify-content-center — the issue #1 utility.
+    const ctr = document.getElementById('bs-center')
+    const ctrCol = ctr.firstElementChild
+    const lead = box(ctrCol).left - box(ctr).left
+    const trail = box(ctr).right - box(ctrCol).right
+    add('justify-content-center centres (issue #1)', Math.abs(lead - trail) <= 2.5,
+      `lead ${lead.toFixed(1)}px vs trail ${trail.toFixed(1)}px`)
+
+    // 4. Mixed element: our layout + Tailwind paint, both effective on the same node.
+    //    col-md-8/4 is 2:1 at >=768px and full-width-stacked below, so branch on the
+    //    actual breakpoint instead of accepting either ratio unconditionally.
+    const mixed = document.getElementById('bs-mixed')
+    const kids = [...mixed.children]
+    const mixedW = box(mixed).width
+    const fracs = kids.map(c => box(c).width / mixedW)
+    const painted = css(kids[1].firstElementChild)
+    const hasTwPaint = px(painted.borderRadius) > 0 &&
+      painted.backgroundColor !== 'rgba(0, 0, 0, 0)'
+
+    const isDesktop = matchMedia('(min-width: 768px)').matches
+    const layoutOk = isDesktop
+      ? Math.abs(fracs[0] - 2 / 3) < 0.03 && Math.abs(fracs[1] - 1 / 3) < 0.03
+      : fracs.every(f => Math.abs(f - 1) < 0.03)
+
+    add('Mixed col-md-8/4 + Tailwind paint', layoutOk && hasTwPaint,
+      `${isDesktop ? 'md+: 2:1' : '<md: stacked'} → ` +
+      `${fracs.map(f => (f * 100).toFixed(1) + '%').join(' / ')}, radius ${painted.borderRadius}`)
+
+    // 5. No global leakage: box-sizing is owned by Tailwind's preflight, not us.
+    //    Assert the COMPUTED property rather than a pixel count — w-64 is 16rem, which
+    //    is only 256px when the root font-size is the 16px default. Browser zoom or a
+    //    custom default font size changes the pixel value without changing correctness.
+    const b = document.getElementById('tw-box')
+    const bs = css(b)
+    const rem = parseFloat(css(document.documentElement).fontSize)
+    const expected = 16 * rem
+    const inside = Math.abs(box(b).width - expected) < 2
+    add('box-sizing not fought over', inside && bs.boxSizing === 'border-box',
+      `width ${box(b).width.toFixed(1)}px (expected ${expected.toFixed(0)} at ${rem}px root), box-sizing:${bs.boxSizing}`)
+
+    // Our stylesheet must not have styled <html>.
+    const htmlStyled = [...document.styleSheets].some(sheet => {
+      try {
+        return [...sheet.cssRules].some(r =>
+          r.selectorText && /^(html|\*)(\s|,|$)/.test(r.selectorText) &&
+          sheet.href?.includes('bootstrap-grid'))
+      } catch { return false }
+    })
+    add('Our CSS declares no html/* rules', !htmlStyled,
+      htmlStyled ? 'found a global element rule' : 'none found')
+
+    return out
+  }
+
+  await settled()
+  const results = checks()
+  const failed = results.filter(r => !r.pass).length
+
+  // A missing stylesheet makes every layout check fail for one boring reason, so say
+  // so unmistakably rather than leaving a wall of red to interpret. The usual cause is
+  // opening this file as file:// instead of through `npm run dev:demo`.
+  // Detect by BEHAVIOUR, not by stylesheet presence: a <link>/@import that 404s still
+  // appears in document.styleSheets, and Tailwind's own sheet can match a naive href
+  // test. The only trustworthy signal is whether our rules actually apply.
+  const probeRow = document.querySelector('.bootstrap-wrapper .row')
+  const loaded = getComputedStyle(probeRow).display === 'flex'
+
+  const diag = `${innerWidth}×${innerHeight} · dpr ${devicePixelRatio} · ` +
+    `sheets ${document.styleSheets.length} · ours ${loaded ? 'loaded' : 'MISSING'}`
+
+  if (!loaded) {
+    document.getElementById('verdict').innerHTML = `
+      <p class="verdict" style="margin:0">
+        <strong class="fail">✗ bootstrap-grid.css did not load — checks below are meaningless</strong><br>
+        <span class="detail">${diag}</span><br><br>
+        Build the library, then serve this page over HTTP:<br>
+        <code>npm run build &amp;&amp; npm run dev:demo</code><br>
+        then open <code>http://localhost:5173/bootstrap-grid-css/${location.pathname.split('/').pop()}</code><br><br>
+        <span class="detail">Opening this file directly from the filesystem will not work:
+        the browser blocks the stylesheet module as a cross-origin request.</span>
+      </p>`
+    throw new Error('bootstrap-grid.css not loaded — serve over HTTP')
+  }
+
+  document.getElementById('verdict').innerHTML = `
+    <p class="verdict" style="margin:0 0 .75rem">
+      <strong class="${failed ? 'fail' : 'pass'}">
+        ${failed ? `✗ ${failed} of ${results.length} checks FAILED` : `✓ all ${results.length} checks passed`}
+      </strong>
+      &nbsp;— Tailwind 4.3.3 + local dist build
+      <br><span class="detail">${diag}</span>
+    </p>
+    <table class="verdict"><tbody>
+      ${results.map(r => `
+        <tr>
+          <td class="${r.pass ? 'pass' : 'fail'}">${r.pass ? '✓' : '✗'}</td>
+          <td>${r.name}</td>
+          <td class="detail">${r.detail}</td>
+        </tr>`).join('')}
+    </tbody></table>`
+
+  console.log(`[coexistence] Tailwind: ${results.length - failed}/${results.length} passed`)
+  results.filter(r => !r.pass).forEach(r => console.error('FAIL:', r.name, '—', r.detail))
+</script>
+
+</body>
+</html>
