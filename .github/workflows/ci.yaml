@@ -57,8 +57,12 @@ jobs:
 
       # On a cache hit the browsers are already present, but the system libraries
       # they link against are not cached, so --with-deps still has to run.
+      #
+      # The `--` is required: without it npm treats --with-deps as its own config
+      # ("Unknown cli config") and never forwards it, so WebKit's system libraries
+      # are silently skipped and every WebKit test fails to launch.
       - name: Install Playwright browsers
-        run: npm exec playwright install --with-deps
+        run: npm exec -- playwright install --with-deps
 
       - name: Run browser tests
         run: npm run test:e2e

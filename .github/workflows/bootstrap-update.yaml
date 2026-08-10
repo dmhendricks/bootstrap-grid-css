@@ -81,7 +81,7 @@ jobs:
       - name: Run the full test suite
         if: steps.check.outputs.available == 'true'
         run: |
-          npm exec playwright install --with-deps
+          npm exec -- playwright install --with-deps
           npm test
 
       - name: Open a pull request
