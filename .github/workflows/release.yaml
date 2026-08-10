@@ -1,0 +1,132 @@
+name: Release
+
+# Two-job layout:
+#
+#   build   — builds the stylesheets, verifies them, runs the browser tests and
+#             packs the dist zip, uploading it as a workflow artifact.
+#   release — only when there's a tag. Downloads the zip and creates a DRAFT
+#             GitHub Release via softprops/action-gh-release.
+#
+# Splitting the two means a broken release step never hides broken builds,
+# and a broken build step never wastes time trying to publish.
+#
+# This never publishes to npm. `npm publish` stays a deliberate command typed by
+# a human, and nothing here is given npm credentials.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (e.g. v5.0.0). Will be created on the current commit if it doesn't already exist."
+        required: true
+  push:
+    tags:
+      - 'v*'
+
+concurrency:
+  group: release
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit --no-fund
+
+      # package.json is committed and npm publishes from it, so the tag must agree
+      # with it rather than be patched into it: a tag that disagrees would attach a
+      # zip named for one version to a release describing another.
+      - name: Check the tag matches package.json
+        run: |
+          TAG="${{ github.event.inputs.tag || github.ref_name }}"
+          VERSION="${TAG#v}"
+          PKG="$(node -p 'require("./package.json").version')"
+          if [ "$VERSION" != "$PKG" ]; then
+            echo "::error::tag '$TAG' implies version '$VERSION' but package.json says '$PKG'"
+            exit 1
+          fi
+          echo "releasing $PKG as $TAG"
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build stylesheets
+        run: npm run build
+
+      # Source invariants, scope leak, breakpoint drift and v4 class parity.
+      - name: Verify build output
+        run: npm run check
+
+      - name: Browser tests
+        run: |
+          npm exec -- playwright install --with-deps
+          npm run test:e2e
+
+      # dist/ is gitignored, so a tag's source archive contains no CSS. This zip is
+      # what the readme's download link points at.
+      - name: Pack the dist zip
+        run: npm run pack:dist
+
+      - name: Upload zip as workflow artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist-zip
+          path: dist-release/*.zip
+          if-no-files-found: error
+          retention-days: 7
+
+  release:
+    needs: build
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-slim
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download zip
+        uses: actions/download-artifact@v8
+        with:
+          name: dist-zip
+          path: dist-release
+
+      - name: List downloaded artifacts
+        run: ls -lah dist-release
+
+      - name: Create draft release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ github.event.inputs.tag || github.ref_name }}
+          name: ${{ github.event.inputs.tag || github.ref_name }}
+          draft: true
+          generate_release_notes: true
+          files: dist-release/*.zip
+          fail_on_unmatched_files: true
+
+      - name: Where to go next
+        run: |
+          TAG="${{ github.event.inputs.tag || github.ref_name }}"
+          {
+            echo "### Draft release $TAG created"
+            echo
+            echo "1. Review and edit the notes: <https://github.com/${{ github.repository }}/releases>"
+            echo "2. Press **Publish release**"
+            echo "3. Then publish to npm from a checkout of the tag:"
+            echo
+            echo '   ```'
+            echo "   git fetch --tags && git checkout $TAG"
+            echo "   npm publish"
+            echo '   ```'
+            echo
+            echo "npm publishing is deliberately not automated."
+          } >> "$GITHUB_STEP_SUMMARY"
