@@ -29,6 +29,7 @@
     "css:minify": "NODE_ENV=MIN postcss --config postcss.config.mjs --dir dist/css --ext .min.css \"dist/css/*.css\" \"!dist/css/*.min.css\"",
     "build": "npm run css:compile && npm run css:prefix && npm run css:rtl && npm run css:minify",
     "prepublishOnly": "npm run build && npm run check",
+    "upgrade:bootstrap": "node scripts/upgrade-bootstrap.ts",
     "dev": "sass --load-path=node_modules --quiet-deps --watch scss/bootstrap-grid.scss dist/css/bootstrap-grid.css",
     "dev:demo": "vite --config vite.config.demo.mjs",
     "build:demo": "vite build --config vite.config.demo.mjs",

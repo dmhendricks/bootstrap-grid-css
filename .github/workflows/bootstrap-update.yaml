@@ -1,0 +1,122 @@
+name: Check for Bootstrap updates
+
+# Opens a pull request when a new Bootstrap 5.x is published.
+#
+# Requires "Read and write permissions" plus "Allow GitHub Actions to create and
+# approve pull requests" under Settings -> Actions -> General -> Workflow
+# permissions. Without them the run fails at the PR step with a 403.
+#
+# This never publishes anything. It opens a PR and stops; releasing to npm stays
+# a manual step.
+
+on:
+  schedule:
+    # 07:00 UTC on the 1st. Bootstrap 5.x has averaged ~83 days between releases
+    # (20 releases over 4.3 years), so monthly catches one well within its useful
+    # life while a weekly run would find nothing ~90% of the time. Use the manual
+    # trigger if a release lands and you don't want to wait.
+    - cron: '0 7 1 * *'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Bootstrap version (blank = latest 5.x)'
+        required: false
+        type: string
+
+concurrency:
+  group: bootstrap-update
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Cheap check first: if nothing is available, the job ends here.
+      - name: Check for a newer Bootstrap
+        id: check
+        run: |
+          set -euo pipefail
+          before=$(node -p "require('./package.json').devDependencies.bootstrap")
+          node scripts/upgrade-bootstrap.ts --check ${{ inputs.version }} | tee /tmp/check.txt
+          if grep -q 'already up to date' /tmp/check.txt; then
+            echo "available=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=true" >> "$GITHUB_OUTPUT"
+            echo "from=$before" >> "$GITHUB_OUTPUT"
+            echo "to=$(grep '^target:' /tmp/check.txt | sed 's|.*bootstrap@||')" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upgrade, rebuild and verify
+        if: steps.check.outputs.available == 'true'
+        id: upgrade
+        run: |
+          set -euo pipefail
+          node scripts/upgrade-bootstrap.ts ${{ inputs.version }} | tee /tmp/upgrade.txt
+          # Keep the package version aligned with the Bootstrap version it is built from.
+          npm pkg set version="${{ steps.check.outputs.to }}"
+          {
+            echo 'report<<REPORT_EOF'
+            sed -n '/^───/,$p' /tmp/upgrade.txt
+            echo REPORT_EOF
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Run the full test suite
+        if: steps.check.outputs.available == 'true'
+        run: |
+          npm exec playwright install --with-deps
+          npm test
+
+      - name: Open a pull request
+        if: steps.check.outputs.available == 'true'
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          branch: chore/bootstrap-${{ steps.check.outputs.to }}
+          base: main
+          title: 'Update Bootstrap to ${{ steps.check.outputs.to }}'
+          commit-message: |
+            Update Bootstrap to ${{ steps.check.outputs.to }}
+
+            Automated bump from ${{ steps.check.outputs.from }}. The build,
+            verification checks and browser tests passed before this was opened.
+          labels: dependencies
+          delete-branch: true
+          body: |
+            Automated Bootstrap bump: **${{ steps.check.outputs.from }} → ${{ steps.check.outputs.to }}**
+
+            The build, the three verification checks and the browser tests all passed
+            before this was opened. What still needs a human:
+
+            - [ ] Read the class diff below. **Removed classes are breaking** for
+                  consumers — each needs an entry in `KNOWN_REMOVALS`
+                  (`scripts/check-parity.ts`) and a row in the readme's migration table.
+            - [ ] Check the [demo preview](https://dmhendricks.github.io/bootstrap-grid-css/)
+                  after merging.
+            - [ ] Publish to npm manually; nothing here does that.
+
+            ```
+            ${{ steps.upgrade.outputs.report }}
+            ```
+
+            <sub>Opened by `.github/workflows/bootstrap-update.yaml`.</sub>
+
+      - name: Report when already current
+        if: steps.check.outputs.available != 'true'
+        run: echo "Bootstrap is already at the latest 5.x — nothing to do."
