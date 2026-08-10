@@ -167,6 +167,124 @@ main { padding: 0 1.5rem; }
   border-style: dashed;
 }
 
+/* ── Code snippets ──────────────────────────────────────────────────── */
+
+.snippet {
+  margin-top: 0.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-soft);
+}
+
+.snippet__summary {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Replace the default marker with one we control in both browsers. */
+.snippet__summary::-webkit-details-marker { display: none; }
+
+.snippet__summary::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 5px solid currentColor;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transition: transform 120ms ease;
+}
+
+.snippet[open] .snippet__summary::before { transform: rotate(90deg); }
+
+.snippet__summary:hover { color: var(--ink); }
+
+.snippet__label {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.snippet__body {
+  position: relative;
+  border-top: 1px solid var(--line);
+}
+
+.snippet__pre {
+  margin: 0;
+  padding: 0.875rem 1rem;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.65;
+  tab-size: 2;
+}
+
+.snippet__pre code { all: unset; font: inherit; color: var(--ink); }
+
+/*
+ * sugar-high token colours. It emits inline `style="color:var(--sh-*)"`, so
+ * these variables are the whole theming surface.
+ */
+:root {
+  --sh-sign: #8b93a7;        /* < > = / */
+  --sh-entity: #7c3aed;      /* tag names */
+  --sh-property: #0369a1;    /* attribute names */
+  --sh-string: #047857;      /* attribute values */
+  --sh-keyword: #be185d;
+  --sh-comment: #8b93a7;
+  --sh-jsxliterals: #16181d; /* text content */
+  --sh-class: #b45309;
+  --sh-identifier: #16181d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sh-sign: #6c748a;
+    --sh-entity: #c4a2f7;
+    --sh-property: #7dd3fc;
+    --sh-string: #6ee7b7;
+    --sh-keyword: #f9a8d4;
+    --sh-comment: #6c748a;
+    --sh-jsxliterals: #cbd2e0;
+    --sh-class: #fcd34d;
+    --sh-identifier: #cbd2e0;
+  }
+}
+
+.snippet__copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+  padding: 0.25rem 0.625rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--ink-soft);
+  font: 600 0.6875rem/1.4 system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+
+.snippet__copy:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.snippet__copy:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
 /* ── Footer ─────────────────────────────────────────────────────────── */
 
 .page-footer {

@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
+    "sugar-high": "^2.0.0",
     "vite": "^7.1.12"
   },
   "repository": {
