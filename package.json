@@ -9,7 +9,6 @@
   "style": "dist/css/bootstrap-grid.css",
   "files": [
     "dist/css",
-    "scss",
     "LICENSE",
     "README.md"
   ],

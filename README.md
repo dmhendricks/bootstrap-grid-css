@@ -150,7 +150,7 @@ npm test           # typecheck, verification checks, browser tests
 
 The build compiles [`scss/bootstrap-grid.scss`](scss/bootstrap-grid.scss), which nests Bootstrap's own grid bundle beneath the wrapper class using `@use` and `meta.load-css`, then runs the output through PostCSS for prefixing, RTL generation and minification.
 
-To use a different wrapper class, override `$bootstrap-wrapper-class` in [`scss/_variables.scss`](scss/_variables.scss) and rebuild.
+To use a different wrapper class, clone this repository, override `$bootstrap-wrapper-class` in [`scss/_variables.scss`](scss/_variables.scss) and rebuild. The npm package ships compiled CSS only — the Sass sources are not included, because they load Bootstrap's own SCSS and would need Bootstrap installed alongside them to compile.
 
 ## Credits & License
 
