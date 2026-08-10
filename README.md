@@ -5,7 +5,7 @@
 
 # bootstrap-grid.css
 
-[View Demo](https://dmhendricks.github.io/demo/bootstrap-grid-css/)
+[View Demo](https://dmhendricks.github.io/bootstrap-grid-css/)
 
 ## Purpose
 
@@ -91,7 +91,7 @@ Add the following to the head of your web page:
 Supports both HTTP and HTTPS.
 
 ```html
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/dmhendricks/bootstrap-grid-css@4.1.3/dist/css/bootstrap-grid.min.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-grid-only-css@4.1.3/dist/css/bootstrap-grid.min.css" />
 ```
 
 ### Basic Usage Example
@@ -112,7 +112,7 @@ Supports both HTTP and HTTPS.
 </div>
 ```
 
-See the [demo](https://dmhendricks.github.io/demo/bootstrap-grid-css/) for more information.
+See the [demo](https://dmhendricks.github.io/bootstrap-grid-css/) for more information.
 
 ## Custom Build Tutorial
 
