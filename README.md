@@ -140,17 +140,6 @@ See the [Bootstrap package on jsDelivr](https://cdn.jsdelivr.net/npm/bootstrap/d
 
 **The one thing this package does that Bootstrap's does not is scoping.** It is worth using only when you need Bootstrap's grid inside a page you do not fully control — a legacy site, a CMS theme, a client codebase with its own `.container` or `.row` — and cannot afford Bootstrap's selectors applying globally. That is a real situation, and it is the only one this package is for.
 
-#### Scoping Examples
-
-These pages load this package alongside another CSS framework and verify the scoping in your browser, reporting the result on the page. Both frameworks are loaded from their own CDN, and this package's stylesheet is loaded **last** — the least favourable source order for it.
-
-| Framework | Shared class names | Demo |
-| --- | --- | --- |
-| Tailwind CSS | 11 — including `.container`, `.clearfix`, `.visible`, `.invisible`, `.order-*` | [tailwind.html](https://dmhendricks.github.io/bootstrap-grid-css/examples/tailwind.html) |
-| Bulma 1 | 66 — `.container` plus the whole `.m-*` / `.p-*` spacing scale | [bulma.html](https://dmhendricks.github.io/bootstrap-grid-css/examples/bulma.html) |
-
-Bulma is the stricter test: its spacing scale differs from Bootstrap's, so `.p-3` is `0.75rem` in Bulma and `1rem` here. On that page the same class resolves to **both** values — Bulma's outside the wrapper, this package's inside it.
-
 ## Building from source
 
 ```bash

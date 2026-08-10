@@ -18,6 +18,12 @@ export default defineConfig({
     sourcemap: true,
     // Vite builds only index.html unless told otherwise, so the coexistence pages
     // must be listed explicitly or they silently vanish from the deployed site.
+    //
+    // Those pages are deliberately unlinked — nothing in the readme or the demo points
+    // at them, because listing frameworks alongside this package reads as a suggestion
+    // to combine them. They exist as a scoping regression check: each one verifies in
+    // the browser that the grid stays inside .bootstrap-wrapper while another
+    // framework's stylesheet is live on the same page.
     rollupOptions: {
       input: {
         index: fileURLToPath(new URL('./demo/index.html', import.meta.url)),
