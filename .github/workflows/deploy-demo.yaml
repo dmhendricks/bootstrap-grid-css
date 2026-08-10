@@ -1,0 +1,70 @@
+name: Deploy demo
+
+# Requires Pages source set to GitHub Actions (Settings -> Pages -> Source).
+#
+# Phase 0 note: the demo imports the *committed* dist/css/*.css, so there is no
+# library build step yet. When the sass+postcss pipeline lands (Phase 1), add a
+# `npm run build` step before `build:demo` — see docs plan Phase 3.3.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'demo/**'
+      - 'dist/css/**'
+      - 'vite.config.demo.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.nvmrc'
+      - '.github/workflows/deploy-demo.yaml'
+  workflow_dispatch:
+
+# Let a newer deploy supersede an older one, but never cancel a run that is
+# already publishing — a half-finished Pages deploy is worse than a slow one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build demo
+        run: npm run build:demo
+
+      - name: Configure Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: dist-demo
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0

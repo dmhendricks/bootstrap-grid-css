@@ -1,0 +1,176 @@
+/*
+ * Demo page chrome only — deliberately plain CSS with no Bootstrap dependency,
+ * so that anything the grid does is unambiguously the grid's doing.
+ */
+
+:root {
+  --ink: #16181d;
+  --ink-soft: #5a6072;
+  --bg: #ffffff;
+  --bg-soft: #f5f6f8;
+  --line: #e3e5ea;
+  --accent: #6b21a8;
+  --accent-soft: #f3e8ff;
+  --box: #ede9fe;
+  --box-line: #c4b5fd;
+  --radius: 6px;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e8eaf0;
+    --ink-soft: #9aa1b4;
+    --bg: #14161a;
+    --bg-soft: #1b1e24;
+    --line: #2b2f38;
+    --accent: #c4a2f7;
+    --accent-soft: #2a2140;
+    --box: #2d2545;
+    --box-line: #4c3f78;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.875em;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
+}
+
+a { color: var(--accent); }
+
+/* ── Header ─────────────────────────────────────────────────────────── */
+
+.page-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-soft);
+  padding: 3rem 1.5rem 2.25rem;
+}
+
+.page-header__inner,
+main,
+.page-footer {
+  max-width: 1140px;
+  margin-inline: auto;
+}
+
+.page-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  margin: 0 0 1rem;
+  max-width: 62ch;
+  color: var(--ink-soft);
+  font-size: 1.0625rem;
+}
+
+.build-meta {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+/* ── Sections ───────────────────────────────────────────────────────── */
+
+main { padding: 0 1.5rem; }
+
+.demo {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.demo:last-child { border-bottom: 0; }
+
+.demo h2 {
+  margin: 0 0 0.375rem;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.demo__note {
+  margin: 0 0 1.25rem;
+  max-width: 70ch;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.demo--highlight {
+  background: var(--accent-soft);
+  margin-inline: -1.5rem;
+  padding-inline: 1.5rem;
+  border-radius: var(--radius);
+}
+
+.demo--note .tag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  padding: 0.15em 0.5em;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ── Grid demo boxes ────────────────────────────────────────────────── */
+
+.box {
+  background: var(--box);
+  border: 1px solid var(--box-line);
+  border-radius: var(--radius);
+  padding: 0.75rem 0.5rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  text-align: center;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.box--sm {
+  padding: 0.75rem 0.125rem;
+  font-size: 0.75rem;
+}
+
+.box--outer {
+  background: transparent;
+  border-style: dashed;
+  text-align: left;
+}
+
+/* Used in the isolation demo: no grid applies, so make that visually obvious. */
+.box--plain {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent, transparent 6px,
+    var(--line) 6px, var(--line) 7px
+  );
+  border-style: dashed;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────── */
+
+.page-footer {
+  padding: 2rem 1.5rem 3rem;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}

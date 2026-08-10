@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bootstrap-grid.css — scoped Bootstrap grid demo</title>
+  <meta name="description" content="Demo of bootstrap-grid-only-css: the Bootstrap grid and responsive utilities, scoped beneath .bootstrap-wrapper.">
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="page-header__inner">
+    <h1>bootstrap-grid.css</h1>
+    <p class="lede">
+      The Bootstrap grid and responsive utilities, scoped beneath
+      <code>.bootstrap-wrapper</code> so they never leak into the rest of your page.
+    </p>
+    <p class="build-meta">
+      Build: <strong data-build-version>Bootstrap 4.1.3</strong>
+      · <a href="https://github.com/dmhendricks/bootstrap-grid-css">GitHub</a>
+      · <a href="https://www.npmjs.com/package/bootstrap-grid-only-css">npm</a>
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <!-- ─── Basic columns ─────────────────────────────────────────────── -->
+  <section class="demo" id="basic">
+    <h2>Equal columns</h2>
+    <p class="demo__note">Three <code>.col-md-4</code> columns; they stack below the <code>md</code> breakpoint.</p>
+    <div class="bootstrap-wrapper" data-demo="basic">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4"><div class="box">.col-md-4</div></div>
+          <div class="col-md-4"><div class="box">.col-md-4</div></div>
+          <div class="col-md-4"><div class="box">.col-md-4</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Twelve columns ────────────────────────────────────────────── -->
+  <section class="demo" id="twelve">
+    <h2>The 12-column grid</h2>
+    <p class="demo__note">Twelve <code>.col-1</code> columns — the widths sum to the row.</p>
+    <div class="bootstrap-wrapper" data-demo="twelve">
+      <div class="container">
+        <div class="row">
+          <div class="col-1"><div class="box box--sm">1</div></div>
+          <div class="col-1"><div class="box box--sm">2</div></div>
+          <div class="col-1"><div class="box box--sm">3</div></div>
+          <div class="col-1"><div class="box box--sm">4</div></div>
+          <div class="col-1"><div class="box box--sm">5</div></div>
+          <div class="col-1"><div class="box box--sm">6</div></div>
+          <div class="col-1"><div class="box box--sm">7</div></div>
+          <div class="col-1"><div class="box box--sm">8</div></div>
+          <div class="col-1"><div class="box box--sm">9</div></div>
+          <div class="col-1"><div class="box box--sm">10</div></div>
+          <div class="col-1"><div class="box box--sm">11</div></div>
+          <div class="col-1"><div class="box box--sm">12</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Fractions ─────────────────────────────────────────────────── -->
+  <section class="demo" id="fractions">
+    <h2>Halves, thirds, quarters</h2>
+    <div class="bootstrap-wrapper" data-demo="fractions">
+      <div class="container">
+        <div class="row">
+          <div class="col-6"><div class="box">.col-6</div></div>
+          <div class="col-6"><div class="box">.col-6</div></div>
+        </div>
+        <div class="row">
+          <div class="col-4"><div class="box">.col-4</div></div>
+          <div class="col-4"><div class="box">.col-4</div></div>
+          <div class="col-4"><div class="box">.col-4</div></div>
+        </div>
+        <div class="row">
+          <div class="col-3"><div class="box">.col-3</div></div>
+          <div class="col-3"><div class="box">.col-3</div></div>
+          <div class="col-3"><div class="box">.col-3</div></div>
+          <div class="col-3"><div class="box">.col-3</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Auto-layout ───────────────────────────────────────────────── -->
+  <section class="demo" id="auto">
+    <h2>Auto-layout &amp; <code>.col-auto</code></h2>
+    <p class="demo__note"><code>.col</code> shares remaining space; <code>.col-auto</code> is content-width.</p>
+    <div class="bootstrap-wrapper" data-demo="auto">
+      <div class="container">
+        <div class="row">
+          <div class="col"><div class="box">.col</div></div>
+          <div class="col-auto"><div class="box">.col-auto (narrow)</div></div>
+          <div class="col"><div class="box">.col</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Offsets ───────────────────────────────────────────────────── -->
+  <section class="demo" id="offsets">
+    <h2>Offsets</h2>
+    <div class="bootstrap-wrapper" data-demo="offsets">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3"><div class="box">.col-md-6 .offset-md-3</div></div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 offset-md-8"><div class="box">.col-md-4 .offset-md-8</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Ordering ──────────────────────────────────────────────────── -->
+  <section class="demo" id="order">
+    <h2>Ordering</h2>
+    <p class="demo__note">Source order is A, B, C — displayed order is set by <code>.order-*</code>.</p>
+    <div class="bootstrap-wrapper" data-demo="order">
+      <div class="container">
+        <div class="row">
+          <div class="col order-3"><div class="box">A · .order-3</div></div>
+          <div class="col order-1"><div class="box">B · .order-1</div></div>
+          <div class="col order-2"><div class="box">C · .order-2</div></div>
+        </div>
+        <div class="row">
+          <div class="col order-last"><div class="box">A · .order-last</div></div>
+          <div class="col order-first"><div class="box">B · .order-first</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Gutters ───────────────────────────────────────────────────── -->
+  <section class="demo" id="gutters">
+    <h2>Gutters &amp; <code>.no-gutters</code></h2>
+    <p class="demo__note">
+      Default row, then <code>.no-gutters</code>.
+      <em>Note: renamed to <code>.g-0</code> in the Bootstrap 5 build.</em>
+    </p>
+    <div class="bootstrap-wrapper" data-demo="gutters">
+      <div class="container">
+        <div class="row">
+          <div class="col-4"><div class="box">gutters</div></div>
+          <div class="col-4"><div class="box">gutters</div></div>
+          <div class="col-4"><div class="box">gutters</div></div>
+        </div>
+        <div class="row no-gutters" data-demo-row="no-gutters">
+          <div class="col-4"><div class="box">.no-gutters</div></div>
+          <div class="col-4"><div class="box">.no-gutters</div></div>
+          <div class="col-4"><div class="box">.no-gutters</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Nesting ───────────────────────────────────────────────────── -->
+  <section class="demo" id="nesting">
+    <h2>Nested rows</h2>
+    <div class="bootstrap-wrapper" data-demo="nesting">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="box box--outer">
+              .col-md-8
+              <div class="row">
+                <div class="col-6"><div class="box">nested .col-6</div></div>
+                <div class="col-6"><div class="box">nested .col-6</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4"><div class="box">.col-md-4</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Responsive utilities ──────────────────────────────────────── -->
+  <section class="demo" id="responsive">
+    <h2>Responsive visibility</h2>
+    <p class="demo__note">
+      Resize the window. <em>Note: <code>.hidden-*-up/down</code> were removed in Bootstrap 5 —
+      use <code>.d-*-none</code> instead.</em>
+    </p>
+    <div class="bootstrap-wrapper" data-demo="responsive">
+      <div class="container">
+        <div class="row">
+          <div class="col hidden-sm-down"><div class="box">.hidden-sm-down — hidden on small</div></div>
+          <div class="col hidden-md-up"><div class="box">.hidden-md-up — hidden on large</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Isolation: the whole point ────────────────────────────────── -->
+  <section class="demo demo--highlight" id="isolation">
+    <h2>Scoping / isolation</h2>
+    <p class="demo__note">
+      This is what this package provides over Bootstrap's official grid build. The markup
+      below is <strong>identical</strong> to the first example but sits
+      <strong>outside</strong> <code>.bootstrap-wrapper</code> — so it gets no grid layout
+      at all, and Bootstrap's selectors never touch the rest of your page.
+    </p>
+    <div data-demo="isolation-outside">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4"><div class="box box--plain">.col-md-4 — unstyled (no wrapper)</div></div>
+          <div class="col-md-4"><div class="box box--plain">.col-md-4 — unstyled (no wrapper)</div></div>
+          <div class="col-md-4"><div class="box box--plain">.col-md-4 — unstyled (no wrapper)</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Flex alignment: absent in v4 (issue #1) ───────────────────── -->
+  <section class="demo demo--note" id="flex">
+    <h2>Flex alignment <span class="tag">not in the 4.x build</span></h2>
+    <p class="demo__note">
+      <code>.justify-content-*</code> and <code>.align-items-*</code> are
+      <strong>not included</strong> in this Bootstrap 4 grid-only build — see
+      <a href="https://github.com/dmhendricks/bootstrap-grid-css/issues/1">issue #1</a>.
+      The boxes below therefore do <em>not</em> center. The Bootstrap 5 build includes them.
+    </p>
+    <div class="bootstrap-wrapper" data-demo="flex">
+      <div class="container">
+        <div class="row justify-content-center" data-demo-row="justify-center">
+          <div class="col-3"><div class="box">.col-3</div></div>
+          <div class="col-3"><div class="box">.col-3</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <p>
+    A derivative build of <a href="https://getbootstrap.com/">Bootstrap</a>, MIT licensed.
+    Packaged by <a href="https://www.danhendricks.com/">Daniel M. Hendricks</a>.
+  </p>
+</footer>
+
+</body>
+</html>

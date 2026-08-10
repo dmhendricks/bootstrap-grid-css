@@ -1,5 +1,9 @@
 .DS_Store
 node_modules
+docs/
+dist-demo/
+test-results/
+playwright-report/
 .idea
 *.bak
 *.bak.*
