@@ -1,7 +1,11 @@
 .DS_Store
 node_modules
+.idea
 *.bak
+*.bak.*
 *.log
-package-lock.json
-composer.lock
-dev/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+*.code-workspace

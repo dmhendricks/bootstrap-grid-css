@@ -4,11 +4,8 @@
 [![GitHub Downloads](https://img.shields.io/github/downloads/dmhendricks/bootstrap-grid-css/total.svg?label=GitHub%20downloads)](https://github.com/dmhendricks/bootstrap-grid-css/releases)
 [![NPM Downloads](https://img.shields.io/npm/dt/bootstrap-grid-only-css.svg?label=npm%20downloads)](https://www.npmjs.com/package/bootstrap-grid-only-css?utm_source=github.com&utm_medium=referral&utm_content=button&utm_campaign=dmhendricks%2Fbootstrap-grid-css)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/bootstrap-grid-css.svg?style=social)](https://twitter.com/danielhendricks)
 
 # bootstrap-grid.css
-
-**Original Copyright:** (c) 2011-2018 Twitter, Inc.
 
 ### :pushpin: [View Demo](https://dmhendricks.github.io/demo/bootstrap-grid-css/)
 
@@ -22,6 +19,42 @@ There are times when you only want to use the excellent Bootstrap grid functiona
 * Responsive Utilities (ported from alpha)
 * `.img-fluid` class (formerly `.img-responsive` in Bootstrap 3)
 * `clearfix` utility
+
+## ⚠️ Deprecation
+
+**This project is largely deprecated for Bootstrap 5 and newer.**
+
+Modern versions of Bootstrap provide an official grid-only build, making this package unnecessary for most use cases. If you only need Bootstrap's grid system without the rest of the framework, you can use Bootstrap's `bootstrap-grid.min.css` directly.
+
+For example, via jsDelivr:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap-grid.min.css"
+>
+```
+
+See the [Bootstrap package on jsDelivr](https://cdn.jsdelivr.net/npm/bootstrap/dist/css/) for the available grid builds.
+
+### When is this project still useful?
+
+One feature this project provides that Bootstrap's official grid-only build does not is **scoping**. The Bootstrap grid classes in this package are scoped beneath `.bootstrap-wrapper`, which can be useful when adding Bootstrap's grid to an existing site without exposing Bootstrap's grid and utility selectors globally.
+
+For example:
+
+```html
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">...</div>
+      <div class="col-md-6">...</div>
+    </div>
+  </div>
+</div>
+```
+
+If you do not need this isolation, you should generally use Bootstrap's official grid-only build instead.
 
 ## Installation
 
@@ -92,3 +125,9 @@ Here is how to accomplish what I have done here:
 1. Download and extract the Bootstrap [source files](https://github.com/twbs/bootstrap/)
 2. Modify the SCSS files as desired. For example, to generate this build I added the `.bootstrap-wrapper` class to `scss/bootstrap-grid.scss` (lines 23 and 50), included the responsive utilities (line 43) and `.img-fluid` class (line 48). I also ported the `scss/utilities/_visibility.scss` [responsive utilities](http://v4-alpha.getbootstrap.com/layout/responsive-utilities/) that were found in alpha for convenience.
 3. Once you are done making your changes, use a program like [Koala](http://koala-app.com/) or [Scout](http://scout-app.io/) to compile the SCSS files into usable CSS files. If you have Gulp and npm installed, you can simply run the command: `gulp styles`
+
+## Credits & License
+
+This project is a derivative build of [Bootstrap](https://getbootstrap.com/) 4.1.3, created by [The Bootstrap Authors](https://github.com/twbs/bootstrap/graphs/contributors) and originally Twitter, Inc. Bootstrap is released under the [MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE).
+
+Modifications and packaging in this repository are also under the [MIT License](LICENSE).
