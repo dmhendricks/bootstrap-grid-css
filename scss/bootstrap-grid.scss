@@ -1,50 +1,33 @@
 /*!
- * Bootstrap Grid Only (grid and responsive utilities extracted from Bootstrap 4.1.3)
+ * Bootstrap Grid Only — the Bootstrap grid and flex/spacing utilities,
+ * scoped beneath .bootstrap-wrapper
+ *
  * GitHub: https://github.com/dmhendricks/bootstrap-grid-css
- * Bootstrap License: MIT (https://github.com/twbs/bootstrap/blob/v4-dev/LICENSE)
- * Credits: Twitter, Inc. & The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Built from Bootstrap 5.3.8 (https://getbootstrap.com/)
+ * Bootstrap License: MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * Credits: The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  */
 
-@at-root {
-  @-ms-viewport { width: device-width; } // stylelint-disable-line at-rule-no-vendor-prefix
-}
+@use "sass:meta";
+@use "variables" as config;
 
-html {
-  box-sizing: border-box;
-  -ms-overflow-style: scrollbar;
-}
+#{config.$bootstrap-wrapper-class} {
+  // `meta.load-css` is what makes the scoping possible. A bare `@use` cannot be
+  // nested inside a selector ("This at-rule is not allowed here"), and `@import`
+  // is deprecated — this is the module system's supported way to pull a
+  // stylesheet's CSS output into a nested context.
+  //
+  // Resolution relies on --load-path=node_modules, which also lets --quiet-deps
+  // suppress the deprecation warnings from Bootstrap's own @import-based source.
+  @include meta.load-css("bootstrap/scss/bootstrap-grid");
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
+  @include meta.load-css("extras");
 
-.bootstrap-wrapper {
-
-  @import "functions";
-  @import "variables";
-
-  @import "mixins/text-emphasis";
-  @import "mixins/breakpoints";
-  @import "mixins/clearfix";
-  @import "mixins/breakpoints";
-  @import "mixins/hover";
-  @import "mixins/image";
-  @import "mixins/visibility";
-  @import "mixins/text-hide";
-  @import "mixins/text-truncate";
-  @import "mixins/grid-framework";
-  @import "mixins/grid";
-
-  @import "custom";
-
-  @import "utilities/clearfix";
-  @import "utilities/visibility";
-
-  @import "grid";
-
-  // Create .img-fluid CSS class
-  .img-fluid { @include img-fluid(); }
-
+  // Bootstrap declares these on `:root`, which cannot be nested: it compiles to
+  // `.bootstrap-wrapper :root`, matching nothing (`:root` is always <html>).
+  // Re-declared here so the values remain readable from anything inside the
+  // wrapper. The dead `:root` block is stripped by postcss.config.mjs.
+  @each $name, $value in config.$grid-breakpoints {
+    --bs-breakpoint-#{$name}: #{$value};
+  }
 }

@@ -1,0 +1,29 @@
+/**
+ * Classes this package has always shipped that Bootstrap 5 still provides but
+ * excludes from its grid-only bundle.
+ *
+ * Each is re-added from Bootstrap's own mixins rather than hand-written, so the
+ * output matches upstream exactly.
+ */
+
+@use "bootstrap/scss/mixins/image" as image;
+@use "bootstrap/scss/mixins/clearfix" as clearfix;
+
+// Lives in Bootstrap's _images.scss, which the grid bundle does not load.
+.img-fluid {
+  @include image.img-fluid();
+}
+
+.clearfix {
+  @include clearfix.clearfix();
+}
+
+// Bootstrap generates these from its "visibility" utility, which the grid
+// bundle's $utilities allow-list excludes.
+.visible {
+  visibility: visible !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}

@@ -34,6 +34,13 @@
   "devDependencies": {
     "@playwright/test": "^1.57.0",
     "@types/node": "^26.2.0",
+    "autoprefixer": "^10.5.4",
+    "bootstrap": "5.3.8",
+    "cssnano": "^8.0.5",
+    "postcss": "^8.5.26",
+    "postcss-cli": "^11.0.1",
+    "rtlcss": "^4.3.0",
+    "sass": "^1.102.0",
     "sugar-high": "^2.0.0",
     "typescript": "^7.0.2",
     "vite": "^7.1.12"
