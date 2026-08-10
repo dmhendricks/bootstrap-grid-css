@@ -31,10 +31,10 @@
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
-  margin-right: auto;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
   margin-left: auto;
+  margin-right: auto;
 }
 @media (min-width: 576px) {
   .bootstrap-wrapper .container-sm, .bootstrap-wrapper .container {
@@ -67,16 +67,16 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
 }
 .bootstrap-wrapper .row > * {
   box-sizing: border-box;
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
   margin-top: var(--bs-gutter-y);
 }
 .bootstrap-wrapper .col {
@@ -163,37 +163,37 @@
   width: 100%;
 }
 .bootstrap-wrapper .offset-1 {
-  margin-left: 8.33333333%;
+  margin-right: 8.33333333%;
 }
 .bootstrap-wrapper .offset-2 {
-  margin-left: 16.66666667%;
+  margin-right: 16.66666667%;
 }
 .bootstrap-wrapper .offset-3 {
-  margin-left: 25%;
+  margin-right: 25%;
 }
 .bootstrap-wrapper .offset-4 {
-  margin-left: 33.33333333%;
+  margin-right: 33.33333333%;
 }
 .bootstrap-wrapper .offset-5 {
-  margin-left: 41.66666667%;
+  margin-right: 41.66666667%;
 }
 .bootstrap-wrapper .offset-6 {
-  margin-left: 50%;
+  margin-right: 50%;
 }
 .bootstrap-wrapper .offset-7 {
-  margin-left: 58.33333333%;
+  margin-right: 58.33333333%;
 }
 .bootstrap-wrapper .offset-8 {
-  margin-left: 66.66666667%;
+  margin-right: 66.66666667%;
 }
 .bootstrap-wrapper .offset-9 {
-  margin-left: 75%;
+  margin-right: 75%;
 }
 .bootstrap-wrapper .offset-10 {
-  margin-left: 83.33333333%;
+  margin-right: 83.33333333%;
 }
 .bootstrap-wrapper .offset-11 {
-  margin-left: 91.66666667%;
+  margin-right: 91.66666667%;
 }
 .bootstrap-wrapper .g-0,
 .bootstrap-wrapper .gx-0 {
@@ -328,40 +328,40 @@
     width: 100%;
   }
   .bootstrap-wrapper .offset-sm-0 {
-    margin-left: 0;
+    margin-right: 0;
   }
   .bootstrap-wrapper .offset-sm-1 {
-    margin-left: 8.33333333%;
+    margin-right: 8.33333333%;
   }
   .bootstrap-wrapper .offset-sm-2 {
-    margin-left: 16.66666667%;
+    margin-right: 16.66666667%;
   }
   .bootstrap-wrapper .offset-sm-3 {
-    margin-left: 25%;
+    margin-right: 25%;
   }
   .bootstrap-wrapper .offset-sm-4 {
-    margin-left: 33.33333333%;
+    margin-right: 33.33333333%;
   }
   .bootstrap-wrapper .offset-sm-5 {
-    margin-left: 41.66666667%;
+    margin-right: 41.66666667%;
   }
   .bootstrap-wrapper .offset-sm-6 {
-    margin-left: 50%;
+    margin-right: 50%;
   }
   .bootstrap-wrapper .offset-sm-7 {
-    margin-left: 58.33333333%;
+    margin-right: 58.33333333%;
   }
   .bootstrap-wrapper .offset-sm-8 {
-    margin-left: 66.66666667%;
+    margin-right: 66.66666667%;
   }
   .bootstrap-wrapper .offset-sm-9 {
-    margin-left: 75%;
+    margin-right: 75%;
   }
   .bootstrap-wrapper .offset-sm-10 {
-    margin-left: 83.33333333%;
+    margin-right: 83.33333333%;
   }
   .bootstrap-wrapper .offset-sm-11 {
-    margin-left: 91.66666667%;
+    margin-right: 91.66666667%;
   }
   .bootstrap-wrapper .g-sm-0,
   .bootstrap-wrapper .gx-sm-0 {
@@ -497,40 +497,40 @@
     width: 100%;
   }
   .bootstrap-wrapper .offset-md-0 {
-    margin-left: 0;
+    margin-right: 0;
   }
   .bootstrap-wrapper .offset-md-1 {
-    margin-left: 8.33333333%;
+    margin-right: 8.33333333%;
   }
   .bootstrap-wrapper .offset-md-2 {
-    margin-left: 16.66666667%;
+    margin-right: 16.66666667%;
   }
   .bootstrap-wrapper .offset-md-3 {
-    margin-left: 25%;
+    margin-right: 25%;
   }
   .bootstrap-wrapper .offset-md-4 {
-    margin-left: 33.33333333%;
+    margin-right: 33.33333333%;
   }
   .bootstrap-wrapper .offset-md-5 {
-    margin-left: 41.66666667%;
+    margin-right: 41.66666667%;
   }
   .bootstrap-wrapper .offset-md-6 {
-    margin-left: 50%;
+    margin-right: 50%;
   }
   .bootstrap-wrapper .offset-md-7 {
-    margin-left: 58.33333333%;
+    margin-right: 58.33333333%;
   }
   .bootstrap-wrapper .offset-md-8 {
-    margin-left: 66.66666667%;
+    margin-right: 66.66666667%;
   }
   .bootstrap-wrapper .offset-md-9 {
-    margin-left: 75%;
+    margin-right: 75%;
   }
   .bootstrap-wrapper .offset-md-10 {
-    margin-left: 83.33333333%;
+    margin-right: 83.33333333%;
   }
   .bootstrap-wrapper .offset-md-11 {
-    margin-left: 91.66666667%;
+    margin-right: 91.66666667%;
   }
   .bootstrap-wrapper .g-md-0,
   .bootstrap-wrapper .gx-md-0 {
@@ -666,40 +666,40 @@
     width: 100%;
   }
   .bootstrap-wrapper .offset-lg-0 {
-    margin-left: 0;
+    margin-right: 0;
   }
   .bootstrap-wrapper .offset-lg-1 {
-    margin-left: 8.33333333%;
+    margin-right: 8.33333333%;
   }
   .bootstrap-wrapper .offset-lg-2 {
-    margin-left: 16.66666667%;
+    margin-right: 16.66666667%;
   }
   .bootstrap-wrapper .offset-lg-3 {
-    margin-left: 25%;
+    margin-right: 25%;
   }
   .bootstrap-wrapper .offset-lg-4 {
-    margin-left: 33.33333333%;
+    margin-right: 33.33333333%;
   }
   .bootstrap-wrapper .offset-lg-5 {
-    margin-left: 41.66666667%;
+    margin-right: 41.66666667%;
   }
   .bootstrap-wrapper .offset-lg-6 {
-    margin-left: 50%;
+    margin-right: 50%;
   }
   .bootstrap-wrapper .offset-lg-7 {
-    margin-left: 58.33333333%;
+    margin-right: 58.33333333%;
   }
   .bootstrap-wrapper .offset-lg-8 {
-    margin-left: 66.66666667%;
+    margin-right: 66.66666667%;
   }
   .bootstrap-wrapper .offset-lg-9 {
-    margin-left: 75%;
+    margin-right: 75%;
   }
   .bootstrap-wrapper .offset-lg-10 {
-    margin-left: 83.33333333%;
+    margin-right: 83.33333333%;
   }
   .bootstrap-wrapper .offset-lg-11 {
-    margin-left: 91.66666667%;
+    margin-right: 91.66666667%;
   }
   .bootstrap-wrapper .g-lg-0,
   .bootstrap-wrapper .gx-lg-0 {
@@ -835,40 +835,40 @@
     width: 100%;
   }
   .bootstrap-wrapper .offset-xl-0 {
-    margin-left: 0;
+    margin-right: 0;
   }
   .bootstrap-wrapper .offset-xl-1 {
-    margin-left: 8.33333333%;
+    margin-right: 8.33333333%;
   }
   .bootstrap-wrapper .offset-xl-2 {
-    margin-left: 16.66666667%;
+    margin-right: 16.66666667%;
   }
   .bootstrap-wrapper .offset-xl-3 {
-    margin-left: 25%;
+    margin-right: 25%;
   }
   .bootstrap-wrapper .offset-xl-4 {
-    margin-left: 33.33333333%;
+    margin-right: 33.33333333%;
   }
   .bootstrap-wrapper .offset-xl-5 {
-    margin-left: 41.66666667%;
+    margin-right: 41.66666667%;
   }
   .bootstrap-wrapper .offset-xl-6 {
-    margin-left: 50%;
+    margin-right: 50%;
   }
   .bootstrap-wrapper .offset-xl-7 {
-    margin-left: 58.33333333%;
+    margin-right: 58.33333333%;
   }
   .bootstrap-wrapper .offset-xl-8 {
-    margin-left: 66.66666667%;
+    margin-right: 66.66666667%;
   }
   .bootstrap-wrapper .offset-xl-9 {
-    margin-left: 75%;
+    margin-right: 75%;
   }
   .bootstrap-wrapper .offset-xl-10 {
-    margin-left: 83.33333333%;
+    margin-right: 83.33333333%;
   }
   .bootstrap-wrapper .offset-xl-11 {
-    margin-left: 91.66666667%;
+    margin-right: 91.66666667%;
   }
   .bootstrap-wrapper .g-xl-0,
   .bootstrap-wrapper .gx-xl-0 {
@@ -1004,40 +1004,40 @@
     width: 100%;
   }
   .bootstrap-wrapper .offset-xxl-0 {
-    margin-left: 0;
+    margin-right: 0;
   }
   .bootstrap-wrapper .offset-xxl-1 {
-    margin-left: 8.33333333%;
+    margin-right: 8.33333333%;
   }
   .bootstrap-wrapper .offset-xxl-2 {
-    margin-left: 16.66666667%;
+    margin-right: 16.66666667%;
   }
   .bootstrap-wrapper .offset-xxl-3 {
-    margin-left: 25%;
+    margin-right: 25%;
   }
   .bootstrap-wrapper .offset-xxl-4 {
-    margin-left: 33.33333333%;
+    margin-right: 33.33333333%;
   }
   .bootstrap-wrapper .offset-xxl-5 {
-    margin-left: 41.66666667%;
+    margin-right: 41.66666667%;
   }
   .bootstrap-wrapper .offset-xxl-6 {
-    margin-left: 50%;
+    margin-right: 50%;
   }
   .bootstrap-wrapper .offset-xxl-7 {
-    margin-left: 58.33333333%;
+    margin-right: 58.33333333%;
   }
   .bootstrap-wrapper .offset-xxl-8 {
-    margin-left: 66.66666667%;
+    margin-right: 66.66666667%;
   }
   .bootstrap-wrapper .offset-xxl-9 {
-    margin-left: 75%;
+    margin-right: 75%;
   }
   .bootstrap-wrapper .offset-xxl-10 {
-    margin-left: 83.33333333%;
+    margin-right: 83.33333333%;
   }
   .bootstrap-wrapper .offset-xxl-11 {
-    margin-left: 91.66666667%;
+    margin-right: 91.66666667%;
   }
   .bootstrap-wrapper .g-xxl-0,
   .bootstrap-wrapper .gx-xxl-0 {
@@ -1272,32 +1272,32 @@
   margin: auto !important;
 }
 .bootstrap-wrapper .mx-0 {
-  margin-right: 0 !important;
   margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 .bootstrap-wrapper .mx-1 {
-  margin-right: 0.25rem !important;
   margin-left: 0.25rem !important;
+  margin-right: 0.25rem !important;
 }
 .bootstrap-wrapper .mx-2 {
-  margin-right: 0.5rem !important;
   margin-left: 0.5rem !important;
+  margin-right: 0.5rem !important;
 }
 .bootstrap-wrapper .mx-3 {
-  margin-right: 1rem !important;
   margin-left: 1rem !important;
+  margin-right: 1rem !important;
 }
 .bootstrap-wrapper .mx-4 {
-  margin-right: 1.5rem !important;
   margin-left: 1.5rem !important;
+  margin-right: 1.5rem !important;
 }
 .bootstrap-wrapper .mx-5 {
-  margin-right: 3rem !important;
   margin-left: 3rem !important;
+  margin-right: 3rem !important;
 }
 .bootstrap-wrapper .mx-auto {
-  margin-right: auto !important;
   margin-left: auto !important;
+  margin-right: auto !important;
 }
 .bootstrap-wrapper .my-0 {
   margin-top: 0 !important;
@@ -1349,25 +1349,25 @@
   margin-top: auto !important;
 }
 .bootstrap-wrapper .me-0 {
-  margin-right: 0 !important;
+  margin-left: 0 !important;
 }
 .bootstrap-wrapper .me-1 {
-  margin-right: 0.25rem !important;
+  margin-left: 0.25rem !important;
 }
 .bootstrap-wrapper .me-2 {
-  margin-right: 0.5rem !important;
+  margin-left: 0.5rem !important;
 }
 .bootstrap-wrapper .me-3 {
-  margin-right: 1rem !important;
+  margin-left: 1rem !important;
 }
 .bootstrap-wrapper .me-4 {
-  margin-right: 1.5rem !important;
+  margin-left: 1.5rem !important;
 }
 .bootstrap-wrapper .me-5 {
-  margin-right: 3rem !important;
+  margin-left: 3rem !important;
 }
 .bootstrap-wrapper .me-auto {
-  margin-right: auto !important;
+  margin-left: auto !important;
 }
 .bootstrap-wrapper .mb-0 {
   margin-bottom: 0 !important;
@@ -1391,25 +1391,25 @@
   margin-bottom: auto !important;
 }
 .bootstrap-wrapper .ms-0 {
-  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 .bootstrap-wrapper .ms-1 {
-  margin-left: 0.25rem !important;
+  margin-right: 0.25rem !important;
 }
 .bootstrap-wrapper .ms-2 {
-  margin-left: 0.5rem !important;
+  margin-right: 0.5rem !important;
 }
 .bootstrap-wrapper .ms-3 {
-  margin-left: 1rem !important;
+  margin-right: 1rem !important;
 }
 .bootstrap-wrapper .ms-4 {
-  margin-left: 1.5rem !important;
+  margin-right: 1.5rem !important;
 }
 .bootstrap-wrapper .ms-5 {
-  margin-left: 3rem !important;
+  margin-right: 3rem !important;
 }
 .bootstrap-wrapper .ms-auto {
-  margin-left: auto !important;
+  margin-right: auto !important;
 }
 .bootstrap-wrapper .p-0 {
   padding: 0 !important;
@@ -1430,28 +1430,28 @@
   padding: 3rem !important;
 }
 .bootstrap-wrapper .px-0 {
-  padding-right: 0 !important;
   padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 .bootstrap-wrapper .px-1 {
-  padding-right: 0.25rem !important;
   padding-left: 0.25rem !important;
+  padding-right: 0.25rem !important;
 }
 .bootstrap-wrapper .px-2 {
-  padding-right: 0.5rem !important;
   padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
 }
 .bootstrap-wrapper .px-3 {
-  padding-right: 1rem !important;
   padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
 .bootstrap-wrapper .px-4 {
-  padding-right: 1.5rem !important;
   padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
 }
 .bootstrap-wrapper .px-5 {
-  padding-right: 3rem !important;
   padding-left: 3rem !important;
+  padding-right: 3rem !important;
 }
 .bootstrap-wrapper .py-0 {
   padding-top: 0 !important;
@@ -1496,22 +1496,22 @@
   padding-top: 3rem !important;
 }
 .bootstrap-wrapper .pe-0 {
-  padding-right: 0 !important;
+  padding-left: 0 !important;
 }
 .bootstrap-wrapper .pe-1 {
-  padding-right: 0.25rem !important;
+  padding-left: 0.25rem !important;
 }
 .bootstrap-wrapper .pe-2 {
-  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
 }
 .bootstrap-wrapper .pe-3 {
-  padding-right: 1rem !important;
+  padding-left: 1rem !important;
 }
 .bootstrap-wrapper .pe-4 {
-  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
 }
 .bootstrap-wrapper .pe-5 {
-  padding-right: 3rem !important;
+  padding-left: 3rem !important;
 }
 .bootstrap-wrapper .pb-0 {
   padding-bottom: 0 !important;
@@ -1532,22 +1532,22 @@
   padding-bottom: 3rem !important;
 }
 .bootstrap-wrapper .ps-0 {
-  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 .bootstrap-wrapper .ps-1 {
-  padding-left: 0.25rem !important;
+  padding-right: 0.25rem !important;
 }
 .bootstrap-wrapper .ps-2 {
-  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
 }
 .bootstrap-wrapper .ps-3 {
-  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
 .bootstrap-wrapper .ps-4 {
-  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
 }
 .bootstrap-wrapper .ps-5 {
-  padding-left: 3rem !important;
+  padding-right: 3rem !important;
 }
 @media (min-width: 576px) {
   .bootstrap-wrapper .d-sm-inline {
@@ -1734,32 +1734,32 @@
     margin: auto !important;
   }
   .bootstrap-wrapper .mx-sm-0 {
-    margin-right: 0 !important;
     margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .bootstrap-wrapper .mx-sm-1 {
-    margin-right: 0.25rem !important;
     margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-wrapper .mx-sm-2 {
-    margin-right: 0.5rem !important;
     margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-wrapper .mx-sm-3 {
-    margin-right: 1rem !important;
     margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-wrapper .mx-sm-4 {
-    margin-right: 1.5rem !important;
     margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-wrapper .mx-sm-5 {
-    margin-right: 3rem !important;
     margin-left: 3rem !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-wrapper .mx-sm-auto {
-    margin-right: auto !important;
     margin-left: auto !important;
+    margin-right: auto !important;
   }
   .bootstrap-wrapper .my-sm-0 {
     margin-top: 0 !important;
@@ -1811,25 +1811,25 @@
     margin-top: auto !important;
   }
   .bootstrap-wrapper .me-sm-0 {
-    margin-right: 0 !important;
+    margin-left: 0 !important;
   }
   .bootstrap-wrapper .me-sm-1 {
-    margin-right: 0.25rem !important;
+    margin-left: 0.25rem !important;
   }
   .bootstrap-wrapper .me-sm-2 {
-    margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
   }
   .bootstrap-wrapper .me-sm-3 {
-    margin-right: 1rem !important;
+    margin-left: 1rem !important;
   }
   .bootstrap-wrapper .me-sm-4 {
-    margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
   }
   .bootstrap-wrapper .me-sm-5 {
-    margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
   .bootstrap-wrapper .me-sm-auto {
-    margin-right: auto !important;
+    margin-left: auto !important;
   }
   .bootstrap-wrapper .mb-sm-0 {
     margin-bottom: 0 !important;
@@ -1853,25 +1853,25 @@
     margin-bottom: auto !important;
   }
   .bootstrap-wrapper .ms-sm-0 {
-    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .bootstrap-wrapper .ms-sm-1 {
-    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-wrapper .ms-sm-2 {
-    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-wrapper .ms-sm-3 {
-    margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-wrapper .ms-sm-4 {
-    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-wrapper .ms-sm-5 {
-    margin-left: 3rem !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-wrapper .ms-sm-auto {
-    margin-left: auto !important;
+    margin-right: auto !important;
   }
   .bootstrap-wrapper .p-sm-0 {
     padding: 0 !important;
@@ -1892,28 +1892,28 @@
     padding: 3rem !important;
   }
   .bootstrap-wrapper .px-sm-0 {
-    padding-right: 0 !important;
     padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .bootstrap-wrapper .px-sm-1 {
-    padding-right: 0.25rem !important;
     padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-wrapper .px-sm-2 {
-    padding-right: 0.5rem !important;
     padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-wrapper .px-sm-3 {
-    padding-right: 1rem !important;
     padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-wrapper .px-sm-4 {
-    padding-right: 1.5rem !important;
     padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-wrapper .px-sm-5 {
-    padding-right: 3rem !important;
     padding-left: 3rem !important;
+    padding-right: 3rem !important;
   }
   .bootstrap-wrapper .py-sm-0 {
     padding-top: 0 !important;
@@ -1958,22 +1958,22 @@
     padding-top: 3rem !important;
   }
   .bootstrap-wrapper .pe-sm-0 {
-    padding-right: 0 !important;
+    padding-left: 0 !important;
   }
   .bootstrap-wrapper .pe-sm-1 {
-    padding-right: 0.25rem !important;
+    padding-left: 0.25rem !important;
   }
   .bootstrap-wrapper .pe-sm-2 {
-    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
   }
   .bootstrap-wrapper .pe-sm-3 {
-    padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
   .bootstrap-wrapper .pe-sm-4 {
-    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
   }
   .bootstrap-wrapper .pe-sm-5 {
-    padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
   .bootstrap-wrapper .pb-sm-0 {
     padding-bottom: 0 !important;
@@ -1994,22 +1994,22 @@
     padding-bottom: 3rem !important;
   }
   .bootstrap-wrapper .ps-sm-0 {
-    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .bootstrap-wrapper .ps-sm-1 {
-    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-wrapper .ps-sm-2 {
-    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-wrapper .ps-sm-3 {
-    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-wrapper .ps-sm-4 {
-    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-wrapper .ps-sm-5 {
-    padding-left: 3rem !important;
+    padding-right: 3rem !important;
   }
 }
 @media (min-width: 768px) {
@@ -2197,32 +2197,32 @@
     margin: auto !important;
   }
   .bootstrap-wrapper .mx-md-0 {
-    margin-right: 0 !important;
     margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .bootstrap-wrapper .mx-md-1 {
-    margin-right: 0.25rem !important;
     margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-wrapper .mx-md-2 {
-    margin-right: 0.5rem !important;
     margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-wrapper .mx-md-3 {
-    margin-right: 1rem !important;
     margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-wrapper .mx-md-4 {
-    margin-right: 1.5rem !important;
     margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-wrapper .mx-md-5 {
-    margin-right: 3rem !important;
     margin-left: 3rem !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-wrapper .mx-md-auto {
-    margin-right: auto !important;
     margin-left: auto !important;
+    margin-right: auto !important;
   }
   .bootstrap-wrapper .my-md-0 {
     margin-top: 0 !important;
@@ -2274,25 +2274,25 @@
     margin-top: auto !important;
   }
   .bootstrap-wrapper .me-md-0 {
-    margin-right: 0 !important;
+    margin-left: 0 !important;
   }
   .bootstrap-wrapper .me-md-1 {
-    margin-right: 0.25rem !important;
+    margin-left: 0.25rem !important;
   }
   .bootstrap-wrapper .me-md-2 {
-    margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
   }
   .bootstrap-wrapper .me-md-3 {
-    margin-right: 1rem !important;
+    margin-left: 1rem !important;
   }
   .bootstrap-wrapper .me-md-4 {
-    margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
   }
   .bootstrap-wrapper .me-md-5 {
-    margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
   .bootstrap-wrapper .me-md-auto {
-    margin-right: auto !important;
+    margin-left: auto !important;
   }
   .bootstrap-wrapper .mb-md-0 {
     margin-bottom: 0 !important;
@@ -2316,25 +2316,25 @@
     margin-bottom: auto !important;
   }
   .bootstrap-wrapper .ms-md-0 {
-    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .bootstrap-wrapper .ms-md-1 {
-    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-wrapper .ms-md-2 {
-    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-wrapper .ms-md-3 {
-    margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-wrapper .ms-md-4 {
-    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-wrapper .ms-md-5 {
-    margin-left: 3rem !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-wrapper .ms-md-auto {
-    margin-left: auto !important;
+    margin-right: auto !important;
   }
   .bootstrap-wrapper .p-md-0 {
     padding: 0 !important;
@@ -2355,28 +2355,28 @@
     padding: 3rem !important;
   }
   .bootstrap-wrapper .px-md-0 {
-    padding-right: 0 !important;
     padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .bootstrap-wrapper .px-md-1 {
-    padding-right: 0.25rem !important;
     padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-wrapper .px-md-2 {
-    padding-right: 0.5rem !important;
     padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-wrapper .px-md-3 {
-    padding-right: 1rem !important;
     padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-wrapper .px-md-4 {
-    padding-right: 1.5rem !important;
     padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-wrapper .px-md-5 {
-    padding-right: 3rem !important;
     padding-left: 3rem !important;
+    padding-right: 3rem !important;
   }
   .bootstrap-wrapper .py-md-0 {
     padding-top: 0 !important;
@@ -2421,22 +2421,22 @@
     padding-top: 3rem !important;
   }
   .bootstrap-wrapper .pe-md-0 {
-    padding-right: 0 !important;
+    padding-left: 0 !important;
   }
   .bootstrap-wrapper .pe-md-1 {
-    padding-right: 0.25rem !important;
+    padding-left: 0.25rem !important;
   }
   .bootstrap-wrapper .pe-md-2 {
-    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
   }
   .bootstrap-wrapper .pe-md-3 {
-    padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
   .bootstrap-wrapper .pe-md-4 {
-    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
   }
   .bootstrap-wrapper .pe-md-5 {
-    padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
   .bootstrap-wrapper .pb-md-0 {
     padding-bottom: 0 !important;
@@ -2457,22 +2457,22 @@
     padding-bottom: 3rem !important;
   }
   .bootstrap-wrapper .ps-md-0 {
-    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .bootstrap-wrapper .ps-md-1 {
-    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-wrapper .ps-md-2 {
-    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-wrapper .ps-md-3 {
-    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-wrapper .ps-md-4 {
-    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-wrapper .ps-md-5 {
-    padding-left: 3rem !important;
+    padding-right: 3rem !important;
   }
 }
 @media (min-width: 992px) {
@@ -2660,32 +2660,32 @@
     margin: auto !important;
   }
   .bootstrap-wrapper .mx-lg-0 {
-    margin-right: 0 !important;
     margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .bootstrap-wrapper .mx-lg-1 {
-    margin-right: 0.25rem !important;
     margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-wrapper .mx-lg-2 {
-    margin-right: 0.5rem !important;
     margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-wrapper .mx-lg-3 {
-    margin-right: 1rem !important;
     margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-wrapper .mx-lg-4 {
-    margin-right: 1.5rem !important;
     margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-wrapper .mx-lg-5 {
-    margin-right: 3rem !important;
     margin-left: 3rem !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-wrapper .mx-lg-auto {
-    margin-right: auto !important;
     margin-left: auto !important;
+    margin-right: auto !important;
   }
   .bootstrap-wrapper .my-lg-0 {
     margin-top: 0 !important;
@@ -2737,25 +2737,25 @@
     margin-top: auto !important;
   }
   .bootstrap-wrapper .me-lg-0 {
-    margin-right: 0 !important;
+    margin-left: 0 !important;
   }
   .bootstrap-wrapper .me-lg-1 {
-    margin-right: 0.25rem !important;
+    margin-left: 0.25rem !important;
   }
   .bootstrap-wrapper .me-lg-2 {
-    margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
   }
   .bootstrap-wrapper .me-lg-3 {
-    margin-right: 1rem !important;
+    margin-left: 1rem !important;
   }
   .bootstrap-wrapper .me-lg-4 {
-    margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
   }
   .bootstrap-wrapper .me-lg-5 {
-    margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
   .bootstrap-wrapper .me-lg-auto {
-    margin-right: auto !important;
+    margin-left: auto !important;
   }
   .bootstrap-wrapper .mb-lg-0 {
     margin-bottom: 0 !important;
@@ -2779,25 +2779,25 @@
     margin-bottom: auto !important;
   }
   .bootstrap-wrapper .ms-lg-0 {
-    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .bootstrap-wrapper .ms-lg-1 {
-    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-wrapper .ms-lg-2 {
-    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-wrapper .ms-lg-3 {
-    margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-wrapper .ms-lg-4 {
-    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-wrapper .ms-lg-5 {
-    margin-left: 3rem !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-wrapper .ms-lg-auto {
-    margin-left: auto !important;
+    margin-right: auto !important;
   }
   .bootstrap-wrapper .p-lg-0 {
     padding: 0 !important;
@@ -2818,28 +2818,28 @@
     padding: 3rem !important;
   }
   .bootstrap-wrapper .px-lg-0 {
-    padding-right: 0 !important;
     padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .bootstrap-wrapper .px-lg-1 {
-    padding-right: 0.25rem !important;
     padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-wrapper .px-lg-2 {
-    padding-right: 0.5rem !important;
     padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-wrapper .px-lg-3 {
-    padding-right: 1rem !important;
     padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-wrapper .px-lg-4 {
-    padding-right: 1.5rem !important;
     padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-wrapper .px-lg-5 {
-    padding-right: 3rem !important;
     padding-left: 3rem !important;
+    padding-right: 3rem !important;
   }
   .bootstrap-wrapper .py-lg-0 {
     padding-top: 0 !important;
@@ -2884,22 +2884,22 @@
     padding-top: 3rem !important;
   }
   .bootstrap-wrapper .pe-lg-0 {
-    padding-right: 0 !important;
+    padding-left: 0 !important;
   }
   .bootstrap-wrapper .pe-lg-1 {
-    padding-right: 0.25rem !important;
+    padding-left: 0.25rem !important;
   }
   .bootstrap-wrapper .pe-lg-2 {
-    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
   }
   .bootstrap-wrapper .pe-lg-3 {
-    padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
   .bootstrap-wrapper .pe-lg-4 {
-    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
   }
   .bootstrap-wrapper .pe-lg-5 {
-    padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
   .bootstrap-wrapper .pb-lg-0 {
     padding-bottom: 0 !important;
@@ -2920,22 +2920,22 @@
     padding-bottom: 3rem !important;
   }
   .bootstrap-wrapper .ps-lg-0 {
-    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .bootstrap-wrapper .ps-lg-1 {
-    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-wrapper .ps-lg-2 {
-    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-wrapper .ps-lg-3 {
-    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-wrapper .ps-lg-4 {
-    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-wrapper .ps-lg-5 {
-    padding-left: 3rem !important;
+    padding-right: 3rem !important;
   }
 }
 @media (min-width: 1200px) {
@@ -3123,32 +3123,32 @@
     margin: auto !important;
   }
   .bootstrap-wrapper .mx-xl-0 {
-    margin-right: 0 !important;
     margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .bootstrap-wrapper .mx-xl-1 {
-    margin-right: 0.25rem !important;
     margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-wrapper .mx-xl-2 {
-    margin-right: 0.5rem !important;
     margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-wrapper .mx-xl-3 {
-    margin-right: 1rem !important;
     margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-wrapper .mx-xl-4 {
-    margin-right: 1.5rem !important;
     margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-wrapper .mx-xl-5 {
-    margin-right: 3rem !important;
     margin-left: 3rem !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-wrapper .mx-xl-auto {
-    margin-right: auto !important;
     margin-left: auto !important;
+    margin-right: auto !important;
   }
   .bootstrap-wrapper .my-xl-0 {
     margin-top: 0 !important;
@@ -3200,25 +3200,25 @@
     margin-top: auto !important;
   }
   .bootstrap-wrapper .me-xl-0 {
-    margin-right: 0 !important;
+    margin-left: 0 !important;
   }
   .bootstrap-wrapper .me-xl-1 {
-    margin-right: 0.25rem !important;
+    margin-left: 0.25rem !important;
   }
   .bootstrap-wrapper .me-xl-2 {
-    margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
   }
   .bootstrap-wrapper .me-xl-3 {
-    margin-right: 1rem !important;
+    margin-left: 1rem !important;
   }
   .bootstrap-wrapper .me-xl-4 {
-    margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
   }
   .bootstrap-wrapper .me-xl-5 {
-    margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
   .bootstrap-wrapper .me-xl-auto {
-    margin-right: auto !important;
+    margin-left: auto !important;
   }
   .bootstrap-wrapper .mb-xl-0 {
     margin-bottom: 0 !important;
@@ -3242,25 +3242,25 @@
     margin-bottom: auto !important;
   }
   .bootstrap-wrapper .ms-xl-0 {
-    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .bootstrap-wrapper .ms-xl-1 {
-    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-wrapper .ms-xl-2 {
-    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-wrapper .ms-xl-3 {
-    margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-wrapper .ms-xl-4 {
-    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-wrapper .ms-xl-5 {
-    margin-left: 3rem !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-wrapper .ms-xl-auto {
-    margin-left: auto !important;
+    margin-right: auto !important;
   }
   .bootstrap-wrapper .p-xl-0 {
     padding: 0 !important;
@@ -3281,28 +3281,28 @@
     padding: 3rem !important;
   }
   .bootstrap-wrapper .px-xl-0 {
-    padding-right: 0 !important;
     padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .bootstrap-wrapper .px-xl-1 {
-    padding-right: 0.25rem !important;
     padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-wrapper .px-xl-2 {
-    padding-right: 0.5rem !important;
     padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-wrapper .px-xl-3 {
-    padding-right: 1rem !important;
     padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-wrapper .px-xl-4 {
-    padding-right: 1.5rem !important;
     padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-wrapper .px-xl-5 {
-    padding-right: 3rem !important;
     padding-left: 3rem !important;
+    padding-right: 3rem !important;
   }
   .bootstrap-wrapper .py-xl-0 {
     padding-top: 0 !important;
@@ -3347,22 +3347,22 @@
     padding-top: 3rem !important;
   }
   .bootstrap-wrapper .pe-xl-0 {
-    padding-right: 0 !important;
+    padding-left: 0 !important;
   }
   .bootstrap-wrapper .pe-xl-1 {
-    padding-right: 0.25rem !important;
+    padding-left: 0.25rem !important;
   }
   .bootstrap-wrapper .pe-xl-2 {
-    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
   }
   .bootstrap-wrapper .pe-xl-3 {
-    padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
   .bootstrap-wrapper .pe-xl-4 {
-    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
   }
   .bootstrap-wrapper .pe-xl-5 {
-    padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
   .bootstrap-wrapper .pb-xl-0 {
     padding-bottom: 0 !important;
@@ -3383,22 +3383,22 @@
     padding-bottom: 3rem !important;
   }
   .bootstrap-wrapper .ps-xl-0 {
-    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .bootstrap-wrapper .ps-xl-1 {
-    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-wrapper .ps-xl-2 {
-    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-wrapper .ps-xl-3 {
-    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-wrapper .ps-xl-4 {
-    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-wrapper .ps-xl-5 {
-    padding-left: 3rem !important;
+    padding-right: 3rem !important;
   }
 }
 @media (min-width: 1400px) {
@@ -3586,32 +3586,32 @@
     margin: auto !important;
   }
   .bootstrap-wrapper .mx-xxl-0 {
-    margin-right: 0 !important;
     margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .bootstrap-wrapper .mx-xxl-1 {
-    margin-right: 0.25rem !important;
     margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-wrapper .mx-xxl-2 {
-    margin-right: 0.5rem !important;
     margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-wrapper .mx-xxl-3 {
-    margin-right: 1rem !important;
     margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-wrapper .mx-xxl-4 {
-    margin-right: 1.5rem !important;
     margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-wrapper .mx-xxl-5 {
-    margin-right: 3rem !important;
     margin-left: 3rem !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-wrapper .mx-xxl-auto {
-    margin-right: auto !important;
     margin-left: auto !important;
+    margin-right: auto !important;
   }
   .bootstrap-wrapper .my-xxl-0 {
     margin-top: 0 !important;
@@ -3663,25 +3663,25 @@
     margin-top: auto !important;
   }
   .bootstrap-wrapper .me-xxl-0 {
-    margin-right: 0 !important;
+    margin-left: 0 !important;
   }
   .bootstrap-wrapper .me-xxl-1 {
-    margin-right: 0.25rem !important;
+    margin-left: 0.25rem !important;
   }
   .bootstrap-wrapper .me-xxl-2 {
-    margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
   }
   .bootstrap-wrapper .me-xxl-3 {
-    margin-right: 1rem !important;
+    margin-left: 1rem !important;
   }
   .bootstrap-wrapper .me-xxl-4 {
-    margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
   }
   .bootstrap-wrapper .me-xxl-5 {
-    margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
   .bootstrap-wrapper .me-xxl-auto {
-    margin-right: auto !important;
+    margin-left: auto !important;
   }
   .bootstrap-wrapper .mb-xxl-0 {
     margin-bottom: 0 !important;
@@ -3705,25 +3705,25 @@
     margin-bottom: auto !important;
   }
   .bootstrap-wrapper .ms-xxl-0 {
-    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .bootstrap-wrapper .ms-xxl-1 {
-    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-wrapper .ms-xxl-2 {
-    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-wrapper .ms-xxl-3 {
-    margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-wrapper .ms-xxl-4 {
-    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-wrapper .ms-xxl-5 {
-    margin-left: 3rem !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-wrapper .ms-xxl-auto {
-    margin-left: auto !important;
+    margin-right: auto !important;
   }
   .bootstrap-wrapper .p-xxl-0 {
     padding: 0 !important;
@@ -3744,28 +3744,28 @@
     padding: 3rem !important;
   }
   .bootstrap-wrapper .px-xxl-0 {
-    padding-right: 0 !important;
     padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .bootstrap-wrapper .px-xxl-1 {
-    padding-right: 0.25rem !important;
     padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-wrapper .px-xxl-2 {
-    padding-right: 0.5rem !important;
     padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-wrapper .px-xxl-3 {
-    padding-right: 1rem !important;
     padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-wrapper .px-xxl-4 {
-    padding-right: 1.5rem !important;
     padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-wrapper .px-xxl-5 {
-    padding-right: 3rem !important;
     padding-left: 3rem !important;
+    padding-right: 3rem !important;
   }
   .bootstrap-wrapper .py-xxl-0 {
     padding-top: 0 !important;
@@ -3810,22 +3810,22 @@
     padding-top: 3rem !important;
   }
   .bootstrap-wrapper .pe-xxl-0 {
-    padding-right: 0 !important;
+    padding-left: 0 !important;
   }
   .bootstrap-wrapper .pe-xxl-1 {
-    padding-right: 0.25rem !important;
+    padding-left: 0.25rem !important;
   }
   .bootstrap-wrapper .pe-xxl-2 {
-    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
   }
   .bootstrap-wrapper .pe-xxl-3 {
-    padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
   .bootstrap-wrapper .pe-xxl-4 {
-    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
   }
   .bootstrap-wrapper .pe-xxl-5 {
-    padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
   .bootstrap-wrapper .pb-xxl-0 {
     padding-bottom: 0 !important;
@@ -3846,22 +3846,22 @@
     padding-bottom: 3rem !important;
   }
   .bootstrap-wrapper .ps-xxl-0 {
-    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .bootstrap-wrapper .ps-xxl-1 {
-    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-wrapper .ps-xxl-2 {
-    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-wrapper .ps-xxl-3 {
-    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-wrapper .ps-xxl-4 {
-    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-wrapper .ps-xxl-5 {
-    padding-left: 3rem !important;
+    padding-right: 3rem !important;
   }
 }
 @media print {
@@ -3931,5 +3931,4 @@
   --bs-breakpoint-xl: 1200px;
   --bs-breakpoint-xxl: 1400px;
 }
-
-/*# sourceMappingURL=bootstrap-grid.css.map */
+/*# sourceMappingURL=bootstrap-grid.rtl.css.map */
