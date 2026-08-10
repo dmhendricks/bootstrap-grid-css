@@ -21,8 +21,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: fileURLToPath(new URL('./demo/index.html', import.meta.url)),
-        tailwind: fileURLToPath(new URL('./demo/tailwind.html', import.meta.url)),
-        bulma: fileURLToPath(new URL('./demo/bulma.html', import.meta.url))
+        tailwind: fileURLToPath(new URL('./demo/examples/tailwind.html', import.meta.url)),
+        bulma: fileURLToPath(new URL('./demo/examples/bulma.html', import.meta.url))
       }
     }
   },

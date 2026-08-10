@@ -14,12 +14,12 @@
     the least favourable order for us: if our rules were going to trample
     Tailwind's, later source order is when it would happen.
 
-    Loaded via a module import (src/grid.js) so Vite emits ONE shared, hashed
+    Loaded via a module import (../src/grid.js) so Vite emits ONE shared, hashed
     stylesheet cached across pages, rather than inlining ~90KB into every page.
     Serve over HTTP — `npm run dev:demo` — since a module import is blocked by
     CORS from a file:// origin; the page says so plainly if the grid is missing.
   -->
-  <script type="module" src="./src/grid.js"></script>
+  <script type="module" src="../src/grid.js"></script>
 
   <style>
     body { font-family: system-ui, sans-serif; margin: 0; }
@@ -289,7 +289,7 @@
         <span class="detail">${diag}</span><br><br>
         Build the library, then serve this page over HTTP:<br>
         <code>npm run build &amp;&amp; npm run dev:demo</code><br>
-        then open <code>http://localhost:5173/bootstrap-grid-css/${location.pathname.split('/').pop()}</code><br><br>
+        then open <code>http://localhost:5173/bootstrap-grid-css/examples/${location.pathname.split('/').pop()}</code><br><br>
         <span class="detail">Opening this file directly from the filesystem will not work:
         the browser blocks the stylesheet module as a cross-origin request.</span>
       </p>`

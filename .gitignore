@@ -3,6 +3,7 @@ node_modules
 docs/
 dist/
 dist-demo/
+dist-release/
 test-results/
 playwright-report/
 .idea

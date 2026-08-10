@@ -42,7 +42,8 @@
     "check": "npm run check:source && npm run check:scope && npm run check:breakpoints && npm run check:parity",
     "test:e2e": "playwright test",
     "test:e2e:live": "PLAYWRIGHT_BASE_URL=https://dmhendricks.github.io/bootstrap-grid-css/ playwright test",
-    "test": "npm run typecheck && npm run check && npm run test:e2e"
+    "test": "npm run typecheck && npm run check && npm run test:e2e",
+    "pack:dist": "node scripts/pack-dist.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",

@@ -16,12 +16,12 @@
 
   <!--
     Our grid, from the LOCAL build, loaded AFTER Bulma — the least favourable source
-    order for us. Loaded via a module import (src/grid.js) so Vite emits ONE shared,
+    order for us. Loaded via a module import (../src/grid.js) so Vite emits ONE shared,
     hashed stylesheet cached across pages, rather than inlining ~90KB into every page.
     Serve over HTTP — `npm run dev:demo` — since a module import is blocked by CORS
     from a file:// origin; the page says so plainly if the grid is missing.
   -->
-  <script type="module" src="./src/grid.js"></script>
+  <script type="module" src="../src/grid.js"></script>
 
   <style>
     /* Page chrome only, sharing index.html's tokens so the demos feel of a piece. */
@@ -339,7 +339,7 @@
         <strong class="fail">✗ bootstrap-grid.css did not load — checks below are meaningless</strong><br>
         <span class="detail">${diag}</span><br><br>
         Run <code>npm run build</code> first, then serve this page:<br>
-        <code>npm run dev:demo</code> → <code>http://localhost:5173/bootstrap-grid-css/bulma.html</code>
+        <code>npm run dev:demo</code> → <code>http://localhost:5173/bootstrap-grid-css/examples/bulma.html</code>
       </p>`
     throw new Error('bootstrap-grid.css not loaded')
   }
