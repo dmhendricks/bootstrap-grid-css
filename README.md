@@ -69,8 +69,10 @@ Include one stylesheet — expanded for development, minified for production, ea
 ### CDN: jsDelivr
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-grid-only-css@5.3.8/dist/css/bootstrap-grid.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-grid-only-css@5/dist/css/bootstrap-grid.min.css" />
 ```
+
+`@5` tracks the latest 5.x of this package. Pin a full version — `@5.0.0` — if you would rather upgrade deliberately.
 
 ### Example
 
@@ -97,7 +99,7 @@ Grid documentation lives on the [Bootstrap site](https://getbootstrap.com/docs/5
 
 ## ⚠️ Upgrading from 4.x
 
-Version 5.x is built from Bootstrap 5.3.8 and **is not a drop-in replacement**. Bootstrap 5 renamed or removed a number of classes; these are the ones that affect this package:
+Version 5.x of this package is built from Bootstrap 5.3.8 and **is not a drop-in replacement**. Bootstrap 5 renamed or removed a number of classes; these are the ones that affect this package:
 
 | 4.x | 5.x | Notes |
 | --- | --- | --- |
@@ -112,6 +114,12 @@ Everything you are most likely using — `.container`, `.row`, `.col-*`, `.col-{
 **Bootstrap 5 drops Internet Explorer support.** If you need IE, stay on [4.1.3](https://github.com/dmhendricks/bootstrap-grid-css/releases/tag/4.1.3).
 
 See Bootstrap's [v5 migration guide](https://getbootstrap.com/docs/5.3/migration/) for the full upstream list.
+
+### Versioning
+
+This package's major version tracks Bootstrap's — 4.x was built from Bootstrap 4, 5.x from Bootstrap 5 — but the minor and patch numbers are its own, so packaging fixes can ship without waiting on an upstream release.
+
+To find the exact Bootstrap version a build came from, read the banner comment at the top of any file in `dist/css`, or check the pinned `bootstrap` devDependency.
 
 ## 🚨 Do you actually need this?
 

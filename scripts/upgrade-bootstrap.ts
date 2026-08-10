@@ -32,8 +32,13 @@ const run = (command: string, args: string[]) =>
     env: { ...process.env, npm_config_loglevel: 'error', npm_config_fund: 'false', npm_config_audit: 'false' }
   }).trim()
 
+/** The pinned Bootstrap version — the thing being upgraded. */
 const currentVersion = () =>
   JSON.parse(readFileSync('package.json', 'utf8')).devDependencies.bootstrap as string
+
+/** This package's own version, which tracks Bootstrap only in its major digit. */
+const packageVersion = () =>
+  JSON.parse(readFileSync('package.json', 'utf8')).version as string
 
 /**
  * Highest published version satisfying RANGE.
@@ -131,7 +136,12 @@ if (!added.length && !removed.length) {
   console.log('\nno change to the class surface — a patch-level bump')
 }
 
+// This package's version is deliberately NOT Bootstrap's: only the major digit is
+// shared, so packaging fixes can ship without waiting for an upstream release.
+// See docs/upgrading-bootstrap.md §3.
+const suggestedBump = removed.length ? 'major' : added.length ? 'minor' : 'patch'
+
 console.log('\nNext:')
-console.log(`  - update the version in package.json to match (currently ${currentVersion()})`)
+console.log(`  - bump this package's version in package.json (${suggestedBump}; currently ${packageVersion()})`)
 console.log('  - run: npm test')
 console.log('  - commit package.json, package-lock.json, and any scss/readme changes')

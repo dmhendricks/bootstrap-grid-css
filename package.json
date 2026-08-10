@@ -2,7 +2,7 @@
   "name": "bootstrap-grid-only-css",
   "description": "The Bootstrap 5 grid, flex and spacing utilities, compiled to CSS and scoped beneath .bootstrap-wrapper. Zero dependencies.",
   "author": "Daniel M. Hendricks",
-  "version": "5.3.8",
+  "version": "5.0.0",
   "license": "MIT",
   "type": "module",
   "main": "dist/css/bootstrap-grid.css",
