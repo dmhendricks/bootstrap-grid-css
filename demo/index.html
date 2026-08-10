@@ -17,7 +17,7 @@
       <code>.bootstrap-wrapper</code> so they never leak into the rest of your page.
     </p>
     <p class="build-meta">
-      Build: <strong data-build-version>Bootstrap 4.1.3</strong>
+      Build: <strong data-build-version>Bootstrap 5.3.8</strong>
       · <a href="https://github.com/dmhendricks/bootstrap-grid-css">GitHub</a>
       · <a href="https://www.npmjs.com/package/bootstrap-grid-only-css">npm</a>
     </p>
@@ -140,10 +140,12 @@
 
   <!-- ─── Gutters ───────────────────────────────────────────────────── -->
   <section class="demo" id="gutters">
-    <h2>Gutters &amp; <code>.no-gutters</code></h2>
+    <h2>Gutters &amp; <code>.g-0</code></h2>
     <p class="demo__note">
-      Default row, then <code>.no-gutters</code>.
-      <em>Note: renamed to <code>.g-0</code> in the Bootstrap 5 build.</em>
+      Default row, then <code>.g-0</code>. Bootstrap 5 also adds
+      <code>.g-*</code>, <code>.gx-*</code> and <code>.gy-*</code> (0–5) for
+      graduated gutter widths — <code>.g-0</code> replaces Bootstrap 4's
+      <code>.no-gutters</code>.
     </p>
     <div class="bootstrap-wrapper" data-demo="gutters">
       <div class="container">
@@ -152,10 +154,10 @@
           <div class="col-4"><div class="box">gutters</div></div>
           <div class="col-4"><div class="box">gutters</div></div>
         </div>
-        <div class="row no-gutters" data-demo-row="no-gutters">
-          <div class="col-4"><div class="box">.no-gutters</div></div>
-          <div class="col-4"><div class="box">.no-gutters</div></div>
-          <div class="col-4"><div class="box">.no-gutters</div></div>
+        <div class="row g-0" data-demo-row="no-gutters">
+          <div class="col-4"><div class="box">.g-0</div></div>
+          <div class="col-4"><div class="box">.g-0</div></div>
+          <div class="col-4"><div class="box">.g-0</div></div>
         </div>
       </div>
     </div>
@@ -186,14 +188,15 @@
   <section class="demo" id="responsive">
     <h2>Responsive visibility</h2>
     <p class="demo__note">
-      Resize the window. <em>Note: <code>.hidden-*-up/down</code> were removed in Bootstrap 5 —
-      use <code>.d-*-none</code> instead.</em>
+      Resize the window. Bootstrap 5 uses display utilities for this;
+      <code>.hidden-*-up</code> / <code>.hidden-*-down</code> from Bootstrap 4 no
+      longer exist.
     </p>
     <div class="bootstrap-wrapper" data-demo="responsive">
       <div class="container">
         <div class="row">
-          <div class="col hidden-sm-down"><div class="box">.hidden-sm-down — hidden on small</div></div>
-          <div class="col hidden-md-up"><div class="box">.hidden-md-up — hidden on large</div></div>
+          <div class="col d-none d-md-block"><div class="box">.d-none .d-md-block — hidden on small</div></div>
+          <div class="col d-md-none"><div class="box">.d-md-none — hidden from md up</div></div>
         </div>
       </div>
     </div>
@@ -219,20 +222,26 @@
     </div>
   </section>
 
-  <!-- ─── Flex alignment: absent in v4 (issue #1) ───────────────────── -->
+  <!-- ─── Flex alignment (issue #1) ──────────────────────────────────── -->
   <section class="demo demo--note" id="flex">
-    <h2>Flex alignment <span class="tag">not in the 4.x build</span></h2>
+    <h2>Flex alignment <span class="tag">new in 5.x</span></h2>
     <p class="demo__note">
-      <code>.justify-content-*</code> and <code>.align-items-*</code> are
-      <strong>not included</strong> in this Bootstrap 4 grid-only build — see
+      <code>.justify-content-*</code> and <code>.align-items-*</code> are included in
+      this build. They were missing from the Bootstrap 4 grid-only build, which was
       <a href="https://github.com/dmhendricks/bootstrap-grid-css/issues/1">issue #1</a>.
-      The boxes below therefore do <em>not</em> center. The Bootstrap 5 build includes them.
+      Bootstrap 5's grid bundle generates them, along with <code>.align-content-*</code>,
+      <code>.align-self-*</code> and <code>.flex-*</code>, at every breakpoint.
     </p>
     <div class="bootstrap-wrapper" data-demo="flex">
       <div class="container">
         <div class="row justify-content-center" data-demo-row="justify-center">
           <div class="col-3"><div class="box">.col-3</div></div>
           <div class="col-3"><div class="box">.col-3</div></div>
+        </div>
+        <div class="row align-items-center" data-demo-row="align-center" style="min-height: 7rem">
+          <div class="col-4"><div class="box">.align-items-center</div></div>
+          <div class="col-4"><div class="box" style="padding-block: 2rem">taller</div></div>
+          <div class="col-4"><div class="box">.align-items-center</div></div>
         </div>
       </div>
     </div>
