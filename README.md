@@ -68,6 +68,22 @@ Include one stylesheet — expanded for development, minified for production, ea
 <link rel="stylesheet" href="dist/css/bootstrap-grid.min.css" />
 ```
 
+### Bundlers — Vite, webpack, Rollup
+
+If you build with a bundler, import the stylesheet once at your application's entry point:
+
+```js
+// main.js / main.ts — expanded, so your bundler minifies it and source maps stay useful
+import 'bootstrap-grid-only-css'
+```
+
+Or name a specific build:
+
+```js
+import 'bootstrap-grid-only-css/dist/css/bootstrap-grid.min.css'      // minified
+import 'bootstrap-grid-only-css/dist/css/bootstrap-grid.rtl.min.css'  // right-to-left
+```
+
 ### CDN: jsDelivr
 
 ```html
