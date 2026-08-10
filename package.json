@@ -1,8 +1,8 @@
 {
   "name": "bootstrap-grid-only-css",
-  "description": "The grid and responsive utilities classes extracted from the Bootstrap framework, compiled into CSS and scoped beneath .bootstrap-wrapper.",
+  "description": "The Bootstrap 5 grid, flex and spacing utilities, compiled to CSS and scoped beneath .bootstrap-wrapper. Zero dependencies.",
   "author": "Daniel M. Hendricks",
-  "version": "4.1.3",
+  "version": "5.3.8",
   "license": "MIT",
   "type": "module",
   "main": "dist/css/bootstrap-grid.css",
@@ -29,14 +29,17 @@
     "css:minify": "NODE_ENV=MIN postcss --config postcss.config.mjs --dir dist/css --ext .min.css \"dist/css/*.css\" \"!dist/css/*.min.css\"",
     "build": "npm run css:compile && npm run css:prefix && npm run css:rtl && npm run css:minify",
     "dev": "sass --load-path=node_modules --quiet-deps --watch scss/bootstrap-grid.scss dist/css/bootstrap-grid.css",
-
     "dev:demo": "vite --config vite.config.demo.mjs",
     "build:demo": "vite build --config vite.config.demo.mjs",
     "preview:demo": "vite preview --config vite.config.demo.mjs",
     "typecheck": "tsc --noEmit",
+    "check:scope": "node scripts/check-scope.ts",
+    "check:breakpoints": "node scripts/check-breakpoints.ts",
+    "check:parity": "node scripts/check-parity.ts",
+    "check": "npm run check:scope && npm run check:breakpoints && npm run check:parity",
     "test:e2e": "playwright test",
     "test:e2e:live": "PLAYWRIGHT_BASE_URL=https://dmhendricks.github.io/bootstrap-grid-css/ playwright test",
-    "test": "npm run typecheck && npm run test:e2e"
+    "test": "npm run typecheck && npm run check && npm run test:e2e"
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",

@@ -39,17 +39,20 @@ export function extractClasses(css: string): string[] {
   return [...found].sort((a, b) => a.localeCompare(b, 'en'))
 }
 
-const args = process.argv.slice(2)
-const outFlag = args.find((a) => a.startsWith('--out='))
-const input = args.find((a) => !a.startsWith('--')) ?? 'dist/css/bootstrap-grid.css'
+// Only act as a CLI when run directly — check-parity.ts imports extractClasses.
+if (process.argv[1] && import.meta.filename === process.argv[1]) {
+  const args = process.argv.slice(2)
+  const outFlag = args.find((a) => a.startsWith('--out='))
+  const input = args.find((a) => !a.startsWith('--')) ?? 'dist/css/bootstrap-grid.css'
 
-const classes = extractClasses(readFileSync(input, 'utf8'))
-const body = `${classes.join('\n')}\n`
+  const classes = extractClasses(readFileSync(input, 'utf8'))
+  const body = `${classes.join('\n')}\n`
 
-if (outFlag) {
-  const target = outFlag.slice('--out='.length)
-  writeFileSync(target, body)
-  console.log(`${classes.length} classes -> ${target}`)
-} else {
-  process.stdout.write(body)
+  if (outFlag) {
+    const target = outFlag.slice('--out='.length)
+    writeFileSync(target, body)
+    console.log(`${classes.length} classes -> ${target}`)
+  } else {
+    process.stdout.write(body)
+  }
 }
