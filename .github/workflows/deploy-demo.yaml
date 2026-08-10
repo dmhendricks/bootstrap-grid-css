@@ -1,17 +1,14 @@
 name: Deploy demo
 
 # Requires Pages source set to GitHub Actions (Settings -> Pages -> Source).
-#
-# Phase 0 note: the demo imports the *committed* dist/css/*.css, so there is no
-# library build step yet. When the sass+postcss pipeline lands (Phase 1), add a
-# `npm run build` step before `build:demo` — see docs plan Phase 3.3.
 
 on:
   push:
     branches: [main]
     paths:
       - 'demo/**'
-      - 'dist/css/**'
+      - 'scss/**'
+      - 'postcss.config.mjs'
       - 'vite.config.demo.mjs'
       - 'package.json'
       - 'package-lock.json'
@@ -43,6 +40,10 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # The demo imports dist/css, which is no longer committed — build it first.
+      - name: Build library
+        run: npm run build
 
       - name: Build demo
         run: npm run build:demo
