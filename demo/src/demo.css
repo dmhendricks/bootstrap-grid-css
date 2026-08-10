@@ -117,6 +117,21 @@ main { padding: 0 1.5rem; }
   border-radius: var(--radius);
 }
 
+/* Pill beside a heading, e.g. "new in 5.x" on the flex section. */
+.tag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  padding: 0.15em 0.5em;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
 
 /* ── Grid demo boxes ────────────────────────────────────────────────── */
 
