@@ -35,10 +35,11 @@
     "build:demo": "vite build --config vite.config.demo.mjs",
     "preview:demo": "vite preview --config vite.config.demo.mjs",
     "typecheck": "tsc --noEmit",
+    "check:source": "node scripts/check-source.ts",
     "check:scope": "node scripts/check-scope.ts",
     "check:breakpoints": "node scripts/check-breakpoints.ts",
     "check:parity": "node scripts/check-parity.ts",
-    "check": "npm run check:scope && npm run check:breakpoints && npm run check:parity",
+    "check": "npm run check:source && npm run check:scope && npm run check:breakpoints && npm run check:parity",
     "test:e2e": "playwright test",
     "test:e2e:live": "PLAYWRIGHT_BASE_URL=https://dmhendricks.github.io/bootstrap-grid-css/ playwright test",
     "test": "npm run typecheck && npm run check && npm run test:e2e"
