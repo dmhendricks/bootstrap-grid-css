@@ -39,7 +39,7 @@ Bootstrap's own grid build defines `.container`, `.row` and `.col-*` globally, s
 </div>
 ```
 
-Markup outside that wrapper is unaffected — including markup using those same class names. If you do not need that isolation, see [Do you actually need this?](#do-you-actually-need-this) below.
+Markup outside that wrapper is unaffected — including markup using those same class names. If you do not need that isolation, see [Do you actually need this?](#-do-you-actually-need-this) below.
 
 ## Installation
 
