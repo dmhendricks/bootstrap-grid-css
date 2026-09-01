@@ -49,7 +49,7 @@
     "@types/node": "^26.2.0",
     "autoprefixer": "^10.5.4",
     "bootstrap": "5.3.8",
-    "cssnano": "^8.0.5",
+    "cssnano": "^9.0.1",
     "postcss": "^8.5.26",
     "postcss-cli": "^11.0.1",
     "rtlcss": "^4.3.0",
